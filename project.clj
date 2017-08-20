@@ -4,8 +4,22 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
-  :dependencies [[org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.9.671" :scope "provided"]
+  :dependencies [
+
+
+                            ;; Frozen clojure version
+                           [org.clojure/clojure "1.9.0-alpha17"]
+
+                            ;; Frozen Clojurescript version
+                           [org.clojure/clojurescript "1.9.854" :scope "provided"]
+
+
+
+                            ;; Takes care of logging
+                            [onelog "0.5.0" :exclusions [org.slf4j/slf4j-log4j12]]
+
+
+
                  [com.cognitect/transit-clj "0.8.300"]
                  [ring "1.6.2"]
                  [ring/ring-defaults "0.3.1"]

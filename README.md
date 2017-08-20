@@ -1,5 +1,12 @@
 # clojuregem
 
+```sh
+lein new chestnut clojuregem +coc +reagent +garden +http-kit
+
+open -a Safari http://localhost:10555
+
+```
+
 
 ## Development
 
