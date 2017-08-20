@@ -5,6 +5,16 @@ lein new chestnut clojuregem +coc +reagent +garden +http-kit
 
 open -a Safari http://localhost:10555
 
+
+gem install bundler
+bundle add unparser
+ruby-parse -L -e "2+2"
+rbenv versions
+rbenv install 2.3.3
+
+# change the global rbenv version
+subl .zshrc 
+
 ```
 
 
