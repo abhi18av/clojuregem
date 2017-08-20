@@ -1,3 +1,4 @@
-require "parser"
+require 'parser/current'
 
-Parser::
+p Parser::CurrentRuby.parse("2 + 2")
+
