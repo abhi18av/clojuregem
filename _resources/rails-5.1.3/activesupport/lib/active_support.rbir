@@ -1,0 +1,137 @@
+(begin
+  (send nil :require
+    (str "securerandom"))
+  (send nil :require
+    (str "active_support/dependencies/autoload"))
+  (send nil :require
+    (str "active_support/version"))
+  (send nil :require
+    (str "active_support/logger"))
+  (send nil :require
+    (str "active_support/lazy_load_hooks"))
+  (send nil :require
+    (str "active_support/core_ext/date_and_time/compatibility"))
+  (module
+    (const nil :ActiveSupport)
+    (begin
+      (send nil :extend
+        (const
+          (const nil :ActiveSupport) :Autoload))
+      (send nil :autoload
+        (sym :Concern))
+      (send nil :autoload
+        (sym :Dependencies))
+      (send nil :autoload
+        (sym :DescendantsTracker))
+      (send nil :autoload
+        (sym :ExecutionWrapper))
+      (send nil :autoload
+        (sym :Executor))
+      (send nil :autoload
+        (sym :FileUpdateChecker))
+      (send nil :autoload
+        (sym :EventedFileUpdateChecker))
+      (send nil :autoload
+        (sym :LogSubscriber))
+      (send nil :autoload
+        (sym :Notifications))
+      (send nil :autoload
+        (sym :Reloader))
+      (block
+        (send nil :eager_autoload)
+        (args)
+        (begin
+          (send nil :autoload
+            (sym :BacktraceCleaner))
+          (send nil :autoload
+            (sym :ProxyObject))
+          (send nil :autoload
+            (sym :Benchmarkable))
+          (send nil :autoload
+            (sym :Cache))
+          (send nil :autoload
+            (sym :Callbacks))
+          (send nil :autoload
+            (sym :Configurable))
+          (send nil :autoload
+            (sym :Deprecation))
+          (send nil :autoload
+            (sym :Gzip))
+          (send nil :autoload
+            (sym :Inflector))
+          (send nil :autoload
+            (sym :JSON))
+          (send nil :autoload
+            (sym :KeyGenerator))
+          (send nil :autoload
+            (sym :MessageEncryptor))
+          (send nil :autoload
+            (sym :MessageVerifier))
+          (send nil :autoload
+            (sym :Multibyte))
+          (send nil :autoload
+            (sym :NumberHelper))
+          (send nil :autoload
+            (sym :OptionMerger))
+          (send nil :autoload
+            (sym :OrderedHash))
+          (send nil :autoload
+            (sym :OrderedOptions))
+          (send nil :autoload
+            (sym :StringInquirer))
+          (send nil :autoload
+            (sym :TaggedLogging))
+          (send nil :autoload
+            (sym :XmlMini))
+          (send nil :autoload
+            (sym :ArrayInquirer))))
+      (send nil :autoload
+        (sym :Rescuable))
+      (send nil :autoload
+        (sym :SafeBuffer)
+        (str "active_support/core_ext/string/output_safety"))
+      (send nil :autoload
+        (sym :TestCase))
+      (defs
+        (self) :eager_load!
+        (args)
+        (begin
+          (zsuper)
+          (send
+            (const nil :NumberHelper) :eager_load!)))
+      (send nil :cattr_accessor
+        (sym :test_order))
+      (defs
+        (self) :halt_callback_chains_on_return_false
+        (args)
+        (send
+          (const
+            (const nil :ActiveSupport) :Deprecation) :warn
+          (send
+            (str "      ActiveSupport.halt_callback_chains_on_return_false is deprecated and will be removed in Rails 5.2.\n") :squish)))
+      (defs
+        (self) :halt_callback_chains_on_return_false=
+        (args
+          (arg :value))
+        (send
+          (const
+            (const nil :ActiveSupport) :Deprecation) :warn
+          (send
+            (str "      ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2.\n") :squish)))
+      (defs
+        (self) :to_time_preserves_timezone
+        (args)
+        (send
+          (const
+            (const nil :DateAndTime) :Compatibility) :preserve_timezone))
+      (defs
+        (self) :to_time_preserves_timezone=
+        (args
+          (arg :value))
+        (send
+          (const
+            (const nil :DateAndTime) :Compatibility) :preserve_timezone=
+          (lvar :value)))))
+  (send nil :autoload
+    (sym :I18n)
+    (str "active_support/i18n")))
