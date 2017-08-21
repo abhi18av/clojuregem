@@ -3,9 +3,7 @@ require "unparser"
 
 def convertFile(input_file_name)
 
-f = open(input_file_name,"r")
-content = f.readlines()
-f.close()
+content = IO.read(input_file_name)
 
 #expr = Parser::CurrentRuby.parse(content)
 
@@ -18,6 +16,6 @@ end
 
 
 input_file_name = ARGV[0]
-convertFile(input_file_name)
+p convertFile(input_file_name)
 
 

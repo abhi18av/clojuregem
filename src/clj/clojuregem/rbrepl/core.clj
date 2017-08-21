@@ -6,7 +6,7 @@
 ;; SCRATCH related work
 (rbrepl/shell-show-scratch)
 
-(rbrepl/shell-save-to-scratch "def add9( x) x + 9 end  ; p add9(9) ")
+;(rbrepl/shell-save-to-scratch "def add9( x) x + 9 end  ; p add9(9) ")
 
 (rbrepl/ruby-eval-scratch)
 
