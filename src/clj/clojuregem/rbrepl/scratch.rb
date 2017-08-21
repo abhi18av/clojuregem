@@ -28,7 +28,7 @@ node1 = s(:def, :add9,
     s(:int, 9)))
 
 
-puts Unparser.unparse(node1) # => "def add9(x)\n  x + 9\nend"
+puts Unparser.unparse(node1) 
 
 
 
@@ -46,9 +46,7 @@ text2 =  %Q{  def test_many_clients
 
                concurrently(clients, &:close)
              end
-           end
-
-}
+           end }
 
 p Parser::CurrentRuby.parse(text2)
 
@@ -150,6 +148,6 @@ node2 =  s(:def, :test_many_clients,
           s(:sym, :close))))))
 
 
-puts Unparser.unparse(node2) # => "def foo(x)\n  x + 3\nend"
+puts Unparser.unparse(node2) 
 
 

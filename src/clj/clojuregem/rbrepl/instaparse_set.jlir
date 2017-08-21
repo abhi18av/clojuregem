@@ -1,0 +1,548 @@
+(:quote, (:block,
+    (:line, 3, :none),
+    (:type, true, (:<:, (:curly, :Set, :T), (:curly, :AbstractSet, :T)), (:block,
+        (:line, 4, :none),
+        (:(::), :dict, (:curly, :Dict, :T, :Void)),
+        (:line, 6, :none),
+        (:(=), (:where, (:call, (:curly, :Set, :T)), :T), (:block,
+            (:line, 6, :none),
+            (:call, :new, (:call, (:curly, :Dict, :T, :Void)))
+          )),
+        (:line, 7, :none),
+        (:(=), (:where, (:call, (:curly, :Set, :T), :itr), :T), (:block,
+            (:line, 7, :none),
+            (:call, :union!, (:call, :new, (:call, (:curly, :Dict, :T, :Void))), :itr)
+          ))
+      )),
+    (:line, 9, :none),
+    (:(=), (:call, :Set), (:block,
+        (:line, 9, :none),
+        (:call, (:curly, :Set, :Any))
+      )),
+    (:line, 10, :none),
+    (:(=), (:call, :Set, :itr), (:block,
+        (:line, 10, :none),
+        (:call, (:curly, :Set, (:call, :eltype, :itr)), :itr)
+      )),
+    (:line, 11, :none),
+    (:function, (:call, :Set, (:(::), :g, :Generator)), (:block,
+        (:line, 12, :none),
+        (:(=), :T, (:call, :_default_eltype, (:call, :typeof, :g))),
+        (:line, 13, :none),
+        (:||, (:||, (:call, :isleaftype, :T), (:call, :(===), :T, (:curly, :Union))), (:return, (:call, :grow_to!, (:call, (:curly, :Set, :T)), :g))),
+        (:line, 14, :none),
+        (:return, (:call, (:curly, :Set, :T), :g))
+      )),
+    (:line, 17, :none),
+    (:(=), (:where, (:call, :eltype, (:(::), (:curly, :Type, (:curly, :Set, :T)))), :T), (:block,
+        (:line, 17, :none),
+        :T
+      )),
+    (:line, 18, :none),
+    (:(=), (:where, (:call, :similar, (:(::), :s, (:curly, :Set, :T))), :T), (:block,
+        (:line, 18, :none),
+        (:call, (:curly, :Set, :T))
+      )),
+    (:line, 19, :none),
+    (:(=), (:call, :similar, (:(::), :s, :Set), (:(::), :T, :Type)), (:block,
+        (:line, 19, :none),
+        (:call, (:curly, :Set, :T))
+      )),
+    (:line, 21, :none),
+    (:function, (:call, :show, (:(::), :io, :IO), (:(::), :s, :Set)), (:block,
+        (:line, 22, :none),
+        (:call, :print, :io, "Set"),
+        (:line, 23, :none),
+        (:if, (:call, :isempty, :s), (:block,
+            (:line, 24, :none),
+            (:call, :print, :io, "{", (:call, :eltype, :s), "}()"),
+            (:line, 25, :none),
+            (:return, nothing)
+          )),
+        (:line, 27, :none),
+        (:call, :print, :io, "("),
+        (:line, 28, :none),
+        (:call, :show_vector, :io, :s, "[", "]"),
+        (:line, 29, :none),
+        (:call, :print, :io, ")")
+      )),
+    (:line, 32, :none),
+    (:(=), (:call, :isempty, (:(::), :s, :Set)), (:block,
+        (:line, 32, :none),
+        (:call, :isempty, (:., :s, (:quote, #QuoteNode
+              :dict
+            )))
+      )),
+    (:line, 33, :none),
+    (:(=), (:call, :length, (:(::), :s, :Set)), (:block,
+        (:line, 33, :none),
+        (:call, :length, (:., :s, (:quote, #QuoteNode
+              :dict
+            )))
+      )),
+    (:line, 34, :none),
+    (:(=), (:call, :in, :x, (:(::), :s, :Set)), (:block,
+        (:line, 34, :none),
+        (:call, :haskey, (:., :s, (:quote, #QuoteNode
+              :dict
+            )), :x)
+      )),
+    (:line, 35, :none),
+    (:(=), (:call, :push!, (:(::), :s, :Set), :x), (:block,
+        (:line, 35, :none),
+        (:block,
+          (:(=), (:ref, (:., :s, (:quote, #QuoteNode
+                  :dict
+                )), :x), :nothing),
+          :s
+        )
+      )),
+    (:line, 36, :none),
+    (:(=), (:call, :pop!, (:(::), :s, :Set), :x), (:block,
+        (:line, 36, :none),
+        (:block,
+          (:call, :pop!, (:., :s, (:quote, #QuoteNode
+                :dict
+              )), :x),
+          :x
+        )
+      )),
+    (:line, 37, :none),
+    (:(=), (:call, :pop!, (:(::), :s, :Set), :x, :deflt), (:block,
+        (:line, 37, :none),
+        (:if, (:call, :in, :x, :s), (:call, :pop!, :s, :x), :deflt)
+      )),
+    (:line, 38, :none),
+    (:(=), (:call, :pop!, (:(::), :s, :Set)), (:block,
+        (:line, 38, :none),
+        (:block,
+          (:(=), :idx, (:call, :start, (:., :s, (:quote, #QuoteNode
+                  :dict
+                )))),
+          (:(=), :val, (:ref, (:., (:., :s, (:quote, #QuoteNode
+                    :dict
+                  )), (:quote, #QuoteNode
+                  :keys
+                )), :idx)),
+          (:call, :_delete!, (:., :s, (:quote, #QuoteNode
+                :dict
+              )), :idx),
+          :val
+        )
+      )),
+    (:line, 39, :none),
+    (:(=), (:call, :delete!, (:(::), :s, :Set), :x), (:block,
+        (:line, 39, :none),
+        (:block,
+          (:call, :delete!, (:., :s, (:quote, #QuoteNode
+                :dict
+              )), :x),
+          :s
+        )
+      )),
+    (:line, 41, :none),
+    (:(=), (:call, :copy, (:(::), :s, :Set)), (:block,
+        (:line, 41, :none),
+        (:call, :union!, (:call, :similar, :s), :s)
+      )),
+    (:line, 43, :none),
+    (:(=), (:call, :sizehint!, (:(::), :s, :Set), :newsz), (:block,
+        (:line, 43, :none),
+        (:block,
+          (:call, :sizehint!, (:., :s, (:quote, #QuoteNode
+                :dict
+              )), :newsz),
+          :s
+        )
+      )),
+    (:line, 44, :none),
+    (:(=), (:call, :empty!, (:(::), :s, :Set)), (:block,
+        (:line, 44, :none),
+        (:block,
+          (:call, :empty!, (:., :s, (:quote, #QuoteNode
+                :dict
+              ))),
+          :s
+        )
+      )),
+    (:line, 45, :none),
+    (:(=), (:call, :rehash!, (:(::), :s, :Set)), (:block,
+        (:line, 45, :none),
+        (:block,
+          (:call, :rehash!, (:., :s, (:quote, #QuoteNode
+                :dict
+              ))),
+          :s
+        )
+      )),
+    (:line, 47, :none),
+    (:(=), (:call, :start, (:(::), :s, :Set)), (:block,
+        (:line, 47, :none),
+        (:call, :start, (:., :s, (:quote, #QuoteNode
+              :dict
+            )))
+      )),
+    (:line, 48, :none),
+    (:(=), (:call, :done, (:(::), :s, :Set), :state), (:block,
+        (:line, 48, :none),
+        (:call, :done, (:., :s, (:quote, #QuoteNode
+              :dict
+            )), :state)
+      )),
+    (:line, 50, :none),
+    (:(=), (:call, :next, (:(::), :s, :Set), :i), (:block,
+        (:line, 50, :none),
+        (:tuple, (:ref, (:., (:., :s, (:quote, #QuoteNode
+                  :dict
+                )), (:quote, #QuoteNode
+                :keys
+              )), :i), (:call, :skip_deleted, (:., :s, (:quote, #QuoteNode
+                :dict
+              )), (:call, :+, :i, 1)))
+      )),
+    (:line, 52, :none),
+    (:(=), (:call, :union), (:block,
+        (:line, 52, :none),
+        (:call, :Set)
+      )),
+    (:line, 53, :none),
+    (:(=), (:call, :union, (:(::), :s, :Set)), (:block,
+        (:line, 53, :none),
+        (:call, :copy, :s)
+      )),
+    (:line, 54, :none),
+    (:function, (:call, :union, (:(::), :s, :Set), (:..., (:(::), :sets, :Set))), (:block,
+        (:line, 55, :none),
+        (:(=), :u, (:call, (:curly, :Set, (:call, :join_eltype, :s, (:..., :sets))))),
+        (:line, 56, :none),
+        (:call, :union!, :u, :s),
+        (:line, 57, :none),
+        (:for, (:(=), :t, :sets), (:block,
+            (:line, 58, :none),
+            (:call, :union!, :u, :t)
+          )),
+        (:line, 60, :none),
+        (:return, :u)
+      )),
+    (:line, 62, :none),
+    (:const, (:(=), :∪, :union)),
+    (:line, 63, :none),
+    (:(=), (:call, :union!, (:(::), :s, :Set), :xs), (:block,
+        (:line, 63, :none),
+        (:block,
+          (:for, (:(=), :x, :xs), (:block,
+              (:line, 63, :none),
+              (:call, :push!, :s, :x)
+            )),
+          :s
+        )
+      )),
+    (:line, 64, :none),
+    (:(=), (:call, :union!, (:(::), :s, :Set), (:(::), :xs, :AbstractArray)), (:block,
+        (:line, 64, :none),
+        (:block,
+          (:call, :sizehint!, :s, (:call, :length, :xs)),
+          (:for, (:(=), :x, :xs), (:block,
+              (:line, 64, :none),
+              (:call, :push!, :s, :x)
+            )),
+          :s
+        )
+      )),
+    (:line, 65, :none),
+    (:(=), (:call, :join_eltype), (:block,
+        (:line, 65, :none),
+        :Bottom
+      )),
+    (:line, 66, :none),
+    (:(=), (:call, :join_eltype, :v1, (:..., :vs)), (:block,
+        (:line, 66, :none),
+        (:call, :typejoin, (:call, :eltype, :v1), (:call, :join_eltype, (:..., :vs)))
+      )),
+    (:line, 68, :none),
+    (:(=), (:call, :intersect, (:(::), :s, :Set)), (:block,
+        (:line, 68, :none),
+        (:call, :copy, :s)
+      )),
+    (:line, 69, :none),
+    (:function, (:call, :intersect, (:(::), :s, :Set), (:..., (:(::), :sets, :Set))), (:block,
+        (:line, 70, :none),
+        (:(=), :i, (:call, :similar, :s)),
+        (:line, 71, :none),
+        (:for, (:(=), :x, :s), (:block,
+            (:line, 72, :none),
+            (:(=), :inall, true),
+            (:line, 73, :none),
+            (:for, (:(=), :t, :sets), (:block,
+                (:line, 74, :none),
+                (:if, (:call, :!, (:call, :in, :x, :t)), (:block,
+                    (:line, 75, :none),
+                    (:(=), :inall, false),
+                    (:line, 76, :none),
+                    (:break,)
+                  ))
+              )),
+            (:line, 79, :none),
+            (:&&, :inall, (:call, :push!, :i, :x))
+          )),
+        (:line, 81, :none),
+        (:return, :i)
+      )),
+    (:line, 83, :none),
+    (:const, (:(=), :∩, :intersect)),
+    (:line, 85, :none),
+    (:function, (:call, :setdiff, (:(::), :a, :Set), (:(::), :b, :Set)), (:block,
+        (:line, 86, :none),
+        (:(=), :d, (:call, :similar, :a)),
+        (:line, 87, :none),
+        (:for, (:(=), :x, :a), (:block,
+            (:line, 88, :none),
+            (:if, (:call, :!, (:call, :in, :x, :b)), (:block,
+                (:line, 89, :none),
+                (:call, :push!, :d, :x)
+              ))
+          )),
+        (:line, 92, :none),
+        :d
+      )),
+    (:line, 94, :none),
+    (:(=), (:call, :setdiff!, (:(::), :s, :Set), :xs), (:block,
+        (:line, 94, :none),
+        (:block,
+          (:for, (:(=), :x, :xs), (:block,
+              (:line, 94, :none),
+              (:call, :delete!, :s, :x)
+            )),
+          :s
+        )
+      )),
+    (:line, 96, :none),
+    (:(=), (:call, :(==), (:(::), :l, :Set), (:(::), :r, :Set)), (:block,
+        (:line, 96, :none),
+        (:&&, (:call, :(==), (:call, :length, :l), (:call, :length, :r)), (:call, :(<=), :l, :r))
+      )),
+    (:line, 97, :none),
+    (:(=), (:call, :<, (:(::), :l, :Set), (:(::), :r, :Set)), (:block,
+        (:line, 97, :none),
+        (:&&, (:call, :<, (:call, :length, :l), (:call, :length, :r)), (:call, :(<=), :l, :r))
+      )),
+    (:line, 98, :none),
+    (:(=), (:call, :(<=), (:(::), :l, :Set), (:(::), :r, :Set)), (:block,
+        (:line, 98, :none),
+        (:call, :issubset, :l, :r)
+      )),
+    (:line, 100, :none),
+    (:function, (:call, :issubset, :l, :r), (:block,
+        (:line, 101, :none),
+        (:for, (:(=), :elt, :l), (:block,
+            (:line, 102, :none),
+            (:if, (:call, :!, (:call, :in, :elt, :r)), (:block,
+                (:line, 103, :none),
+                (:return, false)
+              ))
+          )),
+        (:line, 106, :none),
+        (:return, true)
+      )),
+    (:line, 108, :none),
+    (:const, (:(=), :⊆, :issubset)),
+    (:line, 109, :none),
+    (:(=), (:call, :⊊, (:(::), :l, :Set), (:(::), :r, :Set)), (:block,
+        (:line, 109, :none),
+        (:call, :<, :l, :r)
+      )),
+    (:line, 110, :none),
+    (:(=), (:call, :⊈, (:(::), :l, :Set), (:(::), :r, :Set)), (:block,
+        (:line, 110, :none),
+        (:call, :!, (:call, :⊆, :l, :r))
+      )),
+    (:line, 111, :none),
+    (:(=), (:call, :⊇, :l, :r), (:block,
+        (:line, 111, :none),
+        (:call, :issubset, :r, :l)
+      )),
+    (:line, 112, :none),
+    (:(=), (:call, :⊉, (:(::), :l, :Set), (:(::), :r, :Set)), (:block,
+        (:line, 112, :none),
+        (:call, :!, (:call, :⊇, :l, :r))
+      )),
+    (:line, 113, :none),
+    (:(=), (:call, :⊋, (:(::), :l, :Set), (:(::), :r, :Set)), (:block,
+        (:line, 113, :none),
+        (:call, :<, :r, :l)
+      )),
+    (:line, 115, :none),
+    (:macrocall, :(Core.@doc), "    unique(itr)\n\nReturns an array containing one value from `itr` for each unique value,\nas determined by [`isequal`](@ref).\n\n```jldoctest\njulia> unique([1; 2; 2; 6])\n3-element Array{Int64,1}:\n 1\n 2\n 6\n```\n", (:function, (:call, :unique, :itr), (:block,
+          (:line, 130, :none),
+          (:(=), :T, (:call, :_default_eltype, (:call, :typeof, :itr))),
+          (:line, 131, :none),
+          (:(=), :out, (:call, (:curly, :Vector, :T))),
+          (:line, 132, :none),
+          (:(=), :seen, (:call, (:curly, :Set, :T))),
+          (:line, 133, :none),
+          (:(=), :i, (:call, :start, :itr)),
+          (:line, 134, :none),
+          (:if, (:call, :done, :itr, :i), (:block,
+              (:line, 135, :none),
+              (:return, :out)
+            )),
+          (:line, 137, :none),
+          (:(=), (:tuple, :x, :i), (:call, :next, :itr, :i)),
+          (:line, 138, :none),
+          (:if, (:call, :!, (:call, :isleaftype, :T)), (:block,
+              (:line, 139, :none),
+              (:(=), :S, (:call, :typeof, :x)),
+              (:line, 140, :none),
+              (:return, (:call, :_unique_from, :itr, (:ref, :S, :x), (:call, (:curly, :Set, :S), (:tuple, :x)), :i))
+            )),
+          (:line, 142, :none),
+          (:call, :push!, :seen, :x),
+          (:line, 143, :none),
+          (:call, :push!, :out, :x),
+          (:line, 144, :none),
+          (:return, (:call, :unique_from, :itr, :out, :seen, :i))
+        ))),
+    (:line, 147, :none),
+    (:(=), (:call, :_unique_from, :itr, :out, :seen, :i), (:block,
+        (:line, 147, :none),
+        (:call, :unique_from, :itr, :out, :seen, :i)
+      )),
+    (:line, 148, :none),
+    (:macrocall, Symbol("@inline"), (:function, (:call, (:curly, :unique_from, :T), :itr, (:(::), :out, (:curly, :Vector, :T)), :seen, :i), (:block,
+          (:line, 149, :none),
+          (:while, (:call, :!, (:call, :done, :itr, :i)), (:block,
+              (:line, 150, :none),
+              (:(=), (:tuple, :x, :i), (:call, :next, :itr, :i)),
+              (:line, 151, :none),
+              (:(=), :S, (:call, :typeof, :x)),
+              (:line, 152, :none),
+              (:if, (:call, :!, (:||, (:call, :(===), :S, :T), (:<:, :S, :T))), (:block,
+                  (:line, 153, :none),
+                  (:(=), :R, (:call, :typejoin, :S, :T)),
+                  (:line, 154, :none),
+                  (:(=), :seenR, (:call, :convert, (:curly, :Set, :R), :seen)),
+                  (:line, 155, :none),
+                  (:(=), :outR, (:call, :convert, (:curly, :Vector, :R), :out)),
+                  (:line, 156, :none),
+                  (:if, (:call, :!, (:call, :in, :x, :seenR)), (:block,
+                      (:line, 157, :none),
+                      (:call, :push!, :seenR, :x),
+                      (:line, 158, :none),
+                      (:call, :push!, :outR, :x)
+                    )),
+                  (:line, 160, :none),
+                  (:return, (:call, :_unique_from, :itr, :outR, :seenR, :i))
+                )),
+              (:line, 162, :none),
+              (:if, (:call, :!, (:call, :in, :x, :seen)), (:block,
+                  (:line, 163, :none),
+                  (:call, :push!, :seen, :x),
+                  (:line, 164, :none),
+                  (:call, :push!, :out, :x)
+                ))
+            )),
+          (:line, 167, :none),
+          (:return, :out)
+        ))),
+    (:line, 170, :none),
+    (:macrocall, :(Core.@doc), "    unique(f, itr)\n\nReturns an array containing one value from `itr` for each unique value produced by `f`\napplied to elements of `itr`.\n\n```jldoctest\njulia> unique(isodd, [1; 2; 2; 6])\n2-element Array{Int64,1}:\n 1\n 2\n```\n", (:function, (:call, :unique, (:(::), :f, :Callable), :C), (:block,
+          (:line, 184, :none),
+          (:(=), :out, (:call, (:curly, :Vector, (:call, :eltype, :C)))),
+          (:line, 185, :none),
+          (:(=), :seen, (:call, :Set)),
+          (:line, 186, :none),
+          (:for, (:(=), :x, :C), (:block,
+              (:line, 187, :none),
+              (:(=), :y, (:call, :f, :x)),
+              (:line, 188, :none),
+              (:if, (:call, :!, (:call, :in, :y, :seen)), (:block,
+                  (:line, 189, :none),
+                  (:call, :push!, :seen, :y),
+                  (:line, 190, :none),
+                  (:call, :push!, :out, :x)
+                ))
+            )),
+          (:line, 193, :none),
+          :out
+        ))),
+    (:line, 196, :none),
+    (:macrocall, :(Core.@doc), "    allunique(itr) -> Bool\n\nReturn `true` if all values from `itr` are distinct when compared with [`isequal`](@ref).\n\n```jldoctest\njulia> a = [1; 2; 3]\n3-element Array{Int64,1}:\n 1\n 2\n 3\n\njulia> allunique([a, a])\nfalse\n```\n", (:function, (:call, :allunique, :C), (:block,
+          (:line, 213, :none),
+          (:(=), :seen, (:call, (:curly, :Set, (:call, :eltype, :C)))),
+          (:line, 214, :none),
+          (:for, (:(=), :x, :C), (:block,
+              (:line, 215, :none),
+              (:if, (:call, :in, :x, :seen), (:block,
+                  (:line, 216, :none),
+                  (:return, false)
+                ), (:block,
+                  (:line, 218, :none),
+                  (:call, :push!, :seen, :x)
+                ))
+            )),
+          (:line, 221, :none),
+          true
+        ))),
+    (:line, 224, :none),
+    (:(=), (:call, :allunique, (:(::), :Set)), (:block,
+        (:line, 224, :none),
+        true
+      )),
+    (:line, 226, :none),
+    (:(=), (:where, (:call, :allunique, (:(::), :r, (:curly, :Range, :T))), :T), (:block,
+        (:line, 226, :none),
+        (:||, (:call, :(!=), (:call, :step, :r), (:call, :zero, :T)), (:call, :(<=), (:call, :length, :r), 1))
+      )),
+    (:line, 228, :none),
+    (:function, (:call, :filter, :f, (:(::), :s, :Set)), (:block,
+        (:line, 229, :none),
+        (:(=), :u, (:call, :similar, :s)),
+        (:line, 230, :none),
+        (:for, (:(=), :x, :s), (:block,
+            (:line, 231, :none),
+            (:if, (:call, :f, :x), (:block,
+                (:line, 232, :none),
+                (:call, :push!, :u, :x)
+              ))
+          )),
+        (:line, 235, :none),
+        (:return, :u)
+      )),
+    (:line, 237, :none),
+    (:function, (:call, :filter!, :f, (:(::), :s, :Set)), (:block,
+        (:line, 238, :none),
+        (:for, (:(=), :x, :s), (:block,
+            (:line, 239, :none),
+            (:if, (:call, :!, (:call, :f, :x)), (:block,
+                (:line, 240, :none),
+                (:call, :delete!, :s, :x)
+              ))
+          )),
+        (:line, 243, :none),
+        (:return, :s)
+      )),
+    (:line, 246, :none),
+    (:const, (:(=), :hashs_seed, (:if, (:call, :(===), :UInt, :UInt64), 0x852ada37cfe8e0ce, 0xcfe8e0ce))),
+    (:line, 247, :none),
+    (:function, (:call, :hash, (:(::), :s, :Set), (:(::), :h, :UInt)), (:block,
+        (:line, 248, :none),
+        (:(=), :h, (:call, :hash, :hashs_seed, :h)),
+        (:line, 249, :none),
+        (:for, (:(=), :x, :s), (:block,
+            (:line, 250, :none),
+            (:⊻=, :h, (:call, :hash, :x))
+          )),
+        (:line, 252, :none),
+        (:return, :h)
+      )),
+    (:line, 255, :none),
+    (:(=), (:where, (:call, :convert, (:(::), (:curly, :Type, (:curly, :Set, :T))), (:(::), :s, (:curly, :Set, :T))), :T), (:block,
+        (:line, 255, :none),
+        :s
+      )),
+    (:line, 256, :none),
+    (:(=), (:where, (:call, :convert, (:(::), (:curly, :Type, (:curly, :Set, :T))), (:(::), :x, :Set)), :T), (:block,
+        (:line, 256, :none),
+        (:call, (:curly, :Set, :T), :x)
+      ))
+  ))
