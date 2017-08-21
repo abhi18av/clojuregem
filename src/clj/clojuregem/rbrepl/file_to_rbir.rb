@@ -4,11 +4,12 @@ require "unparser"
 def convertFile(input_file_name)
 
 f = open(input_file_name,"r")
-content = readstring(f)
-close(f)
+content = f.readlines()
+f.close()
 
-expr = Parse::CurrentRuby.parse(content)
+#expr = Parser::CurrentRuby.parse(content)
 
+expr = Parser::23.parse(content)
 return expr
 
 end
@@ -16,6 +17,7 @@ end
 
 
 
-input_file_name = ARGS[1]
+input_file_name = ARGV[0]
 convertFile(input_file_name)
+
 

@@ -9,8 +9,6 @@ p Parser::CurrentRuby.parse(text1)
 
 
 
-
-
 module SExp
   def s(type, *children)
     Parser::AST::Node.new(type, children)
