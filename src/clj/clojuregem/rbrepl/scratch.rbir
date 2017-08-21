@@ -1,8 +1,0 @@
-(:quote, (:block,
-    (:line, 1, :none),
-    (:function, (:call, :add9, :x), (:block,
-        (:line, 1, :none),
-        (:call, :+, :x, 9)
-      )),
-    (:line, 1, :none),
-    (:call, :|>, (:call, :add9, 9), :show)))

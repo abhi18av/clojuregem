@@ -63,22 +63,22 @@
 (defn ruby-create-rb-expr-from-rbir-with-driver-file
   "This function takes in the ruby RBIR form and uses a driver script to print out the RB "
   [ruby-expression]
-  (let [driver-file "./src/clj/clojuregem/rbrepl/rb_expr_from_s_expr.rb"]
+  (let [driver-file (str base-dir "rb_expr_from_s_expr.rb")]
     (utils/ruby-eval-expr-with-driver driver-file ruby-expression)))
 
 (defn ruby-eval-expr-with-driver-file
   "This function takes in the ruby RBIR form and uses a driver script to print out the RB "
   [ruby-expression]
-  (let [driver-file "./src/clj/clojuregem/rbrepl/eval_expr.rb"]
+  (let [driver-file (str base-dir "eval_expr.rb")]
     (utils/ruby-eval-expr-with-driver driver-file ruby-expression)))
 
 (defn ruby-create-rbir-expr-with-driver-file
   "Working on the "
   [ruby-expression]
-  (let [driver-file "./src/clj/clojuregem/rbrepl/create_s_expr.rb"]
+  (let [driver-file (str base-dir "create_s_expr.rb")]
     (utils/ruby-eval-expr-with-driver driver-file ruby-expression)))
 
 (defn shell-open-both-scratch-in-subl []
   (do
-    (utils/shell-open-file-in-sublime "./src/clj/clojuregem/rbrepl/scratch.rb")
-    (utils/shell-open-file-in-sublime "./src/clj/clojuregem/rbrepl/scratch.rbir")))
+    (utils/shell-open-file-in-sublime (str base-dir "scratch.rb"))
+    (utils/shell-open-file-in-sublime (str base-dir "scratch.rbir"))))
