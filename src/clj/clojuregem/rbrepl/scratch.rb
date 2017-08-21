@@ -1,1 +1,1 @@
-def add9( x) x + 9 end  ;  puts add9(9) 
+def add9( x) x + 9 end  ; p add9(9) 

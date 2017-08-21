@@ -1,4 +1,4 @@
-(ns clojewel.rbrepl.core
+(ns clojuregem.rbrepl.core
   (:require [clojuregem.rbrepl.rbrepl :as rbrepl]
             [clojuregem.rbrepl.utils :as utils])
   (:gen-class))
@@ -6,7 +6,7 @@
 ;; SCRATCH related work
 (rbrepl/shell-show-scratch)
 
-(rbrepl/shell-save-to-scratch "def add9( x) x + 9 end  ; puts add9(9) ")
+(rbrepl/shell-save-to-scratch "def add9( x) x + 9 end  ; p add9(9) ")
 
 (rbrepl/ruby-eval-scratch)
 
