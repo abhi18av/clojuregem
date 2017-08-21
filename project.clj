@@ -7,13 +7,41 @@
   :dependencies [
 
 
+
+                            ;;;; EXPERIMENTS
+
+                            [instaparse "1.4.7"]
+
+                            ;;;;
+
+
                             ;; Frozen clojure version
-                           [org.clojure/clojure "1.9.0-alpha17"]
+                            [org.clojure/clojure "1.9.0-alpha17"]
 
                             ;; Frozen Clojurescript version
-                           [org.clojure/clojurescript "1.9.854" :scope "provided"]
+                            [org.clojure/clojurescript "1.9.854" :scope "provided"]
 
 
+                            ;; Clojure AST to EDN
+                            [org.clojure/tools.analyzer "0.6.9"]
+
+
+                            ;; Clojure reader in clojure
+                            [org.clojure/tools.reader "1.0.5"]
+
+
+                            ; Quickcheck
+                            [org.clojure/test.check "0.10.0-alpha2"]
+
+
+                            ;; Documentation using marginalia
+                            [lein-marginalia "0.9.0"]
+                            
+                            ;; Boot documenataion tool Codox
+                            [lein-codox "0.10.3"]
+
+                            ;; Shell library
+                            [me.raynes/conch "0.8.0"]
 
                             ;; Takes care of logging
                             [onelog "0.5.0" :exclusions [org.slf4j/slf4j-log4j12]]
