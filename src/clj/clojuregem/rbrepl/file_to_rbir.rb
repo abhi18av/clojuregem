@@ -9,7 +9,7 @@ f.close()
 
 #expr = Parser::CurrentRuby.parse(content)
 
-expr = Parser::23.parse(content)
+expr = Parser::Ruby23.parse(content)
 return expr
 
 end

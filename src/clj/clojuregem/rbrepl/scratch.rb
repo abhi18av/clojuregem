@@ -1,10 +1,12 @@
 
-require 'parser/current'
+require 'parser'
 require "unparser"
 
 text1 = "def add9(x) x + 9 end"
 
-p Parser::CurrentRuby.parse(text1)
+p Parser::Ruby23.parse(text1)
+
+
 
 
 
@@ -47,7 +49,7 @@ text2 =  %Q{  def test_many_clients
              end
            end }
 
-p Parser::CurrentRuby.parse(text2)
+p Parser::Ruby23.parse(text2)
 
 
 
