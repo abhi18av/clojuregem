@@ -7,7 +7,7 @@ f = open(input_file_name,"r")
 content = readstring(f)
 close(f)
 
-expr = parse(content)
+expr = Parse::CurrentRuby.parse(content)
 
 return expr
 
