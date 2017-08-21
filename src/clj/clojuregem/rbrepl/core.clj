@@ -6,7 +6,7 @@
 ;; SCRATCH related work
 (rbrepl/shell-show-scratch)
 
-(rbrepl/shell-save-to-scratch "function add9( x) x + 9 end  ; add9(9) |> show")
+(rbrepl/shell-save-to-scratch "def add9( x) x + 9 end  ; puts add9(9) ")
 
 (rbrepl/ruby-eval-scratch)
 
@@ -40,4 +40,4 @@
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (println "Clojewel - CLJ!"))
+  (println "Clojuregem - CLJ!"))

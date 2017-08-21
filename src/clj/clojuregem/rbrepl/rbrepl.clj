@@ -1,5 +1,5 @@
 (ns clojuregem.rbrepl.rbrepl
-  (:require [clojuregem.utils :as utils])
+  (:require [clojuregem.rbrepl.utils :as utils])
   (:gen-class))
 
 
