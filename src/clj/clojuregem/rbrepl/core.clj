@@ -1,40 +1,40 @@
-(ns clojewel.jlrepl.core
-  (:require [clojewel.jlrepl.jlrepl :as jlrepl]
-            [clojewel.jlrepl.utils :as utils])
+(ns clojewel.rbrepl.core
+  (:require [clojuregem.rbrepl.rbrepl :as rbrepl]
+            [clojuregem.rbrepl.utils :as utils])
   (:gen-class))
 
 ;; SCRATCH related work
-(jlrepl/shell-show-scratch)
+(rbrepl/shell-show-scratch)
 
-(jlrepl/shell-save-to-scratch "function add9( x) x + 9 end  ; add9(9) |> show")
+(rbrepl/shell-save-to-scratch "function add9( x) x + 9 end  ; add9(9) |> show")
 
-(jlrepl/julia-eval-scratch)
+(rbrepl/ruby-eval-scratch)
 
-(jlrepl/julia-create-scratch-jlir)
+(rbrepl/ruby-create-scratch-rbir)
 
-(jlrepl/shell-show-scratch-jlir)
+(rbrepl/shell-show-scratch-rbir)
 
-(jlrepl/shell-open-both-scratch-in-subl)
+(rbrepl/shell-open-both-scratch-in-subl)
 
 ;; CLI related work
-(utils/julia-eval-cli "eval(Expr(:call, :print, Expr(:call, :+, 1, 1)))")
+(utils/ruby-eval-cli "eval(Expr(:call, :print, Expr(:call, :+, 1, 1)))")
 
-(jlrepl/julia-create-jlir-expr-with-driver-file "println(\"Hello, Julia! \") ")
+(rbrepl/ruby-create-rbir-expr-with-driver-file "println(\"Hello, Ruby! \") ")
 
-(jlrepl/julia-create-jlir-expr-with-driver-file "function add9( x) x + 9 end ")
+(rbrepl/ruby-create-rbir-expr-with-driver-file "function add9( x) x + 9 end ")
 
-(jlrepl/julia-eval-expr-with-driver-file "Expr(:call, :+, 1, 1)")
+(rbrepl/ruby-eval-expr-with-driver-file "Expr(:call, :+, 1, 1)")
 
-(jlrepl/julia-eval-expr-with-driver-file "function add9(x) x + 9 end ; add9(9)")
+(rbrepl/ruby-eval-expr-with-driver-file "function add9(x) x + 9 end ; add9(9)")
 
-(jlrepl/julia-create-jl-expr-from-jlir-with-driver-file "(:call, :+, 1, 1)")
+(rbrepl/ruby-create-jl-expr-from-rbir-with-driver-file "(:call, :+, 1, 1)")
 
 
 ;; EXPERIMENTATION
 
-(jlrepl/julia-create-jl-expr-from-jlir-with-driver-file "(:const,(:(=),(:curly, :AbstractVector, :T),(:curly, :AbstractArray, :T, 1)))")
+(rbrepl/ruby-create-jl-expr-from-rbir-with-driver-file "(:const,(:(=),(:curly, :AbstractVector, :T),(:curly, :AbstractArray, :T, 1)))")
 
-(jlrepl/julia-create-jlir-expr-with-driver-file "function add9( x) x + 9 end ")
+(rbrepl/ruby-create-rbir-expr-with-driver-file "function add9( x) x + 9 end ")
 
 
 (defn -main
