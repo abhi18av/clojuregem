@@ -14,7 +14,7 @@
 
 (defn ruby-eval-file [ruby-file-name]
   (with-programs [ruby]
-  (ruby ruby-file-name)))
+    (ruby ruby-file-name {:out (java.io.Reader.)})))
 
 
 ; EXAMPLE
