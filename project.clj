@@ -36,7 +36,7 @@
 
                             ;; Documentation using marginalia
                             [lein-marginalia "0.9.0"]
-                            
+
                             ;; Boot documenataion tool Codox
                             [lein-codox "0.10.3"]
 

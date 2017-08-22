@@ -1,45 +1,45 @@
 (ns user
   (:require [instaparse.core :as insta]
-            [clojewel.jlrepl.utils :as utils]))
+            [clojuregem.rbrepl.utils :as utils]))
 
-(def base-dir "./src/clj/clojewel/jlrepl/")
+(def base-dir "./src/clj/clojuregem/rbrepl/")
 
 
-(defn julia-create-instaparse-set-jlir
-  "Convert the scratch file to it's JLIR version and show"
+(defn ruby-create-instaparse-set-rbir
+  "Convert the scratch file to it's RBIR version and show"
   []
-  (let [driver-file  (str base-dir "file_to_jlir.jl")
-        source-file  (str base-dir "instaparse_set.jl")
-        output-file  (str base-dir "instaparse_set.jlir")]
-    (utils/julia-eval-file-with-driver driver-file source-file output-file)))
+  (let [driver-file  (str base-dir "file_to_rbir.rb")
+        source-file  (str base-dir "instaparse_client_socket.rb")
+        output-file  (str base-dir "instaparse_client_socket.rbir")]
+    (utils/ruby-eval-file-with-driver driver-file source-file output-file)))
 
-(julia-create-instaparse-set-jlir)
+;(ruby-create-instaparse-set-rbir)
 
 (defn shell-show-instaparse-set
-  "Show the \"normal julia syntax\" contents of scratch.jl file"
+  "Show the \"normal ruby syntax\" contents of scratch.rb file"
   []
-  (let [file (str base-dir "instaparse_set.jl")]
+  (let [file (str base-dir "instaparse_client_socket.rb")]
     (utils/shell-show-file-content file)))
 
-(shell-show-instaparse-set)
+;(shell-show-instaparse-set)
 
-(defn shell-show-instaparse-jlir
-  "Show the \"JLIR\" contents of scratch.jlir file"
+(defn shell-show-instaparse-rbir
+  "Show the \"RBIR\" contents of scratch.rbir file"
   []
-  (let [file (str base-dir "instaparse_set.jlir")]
+  (let [file (str base-dir "instaparse_client_socket.rbir")]
     (utils/shell-show-file-content file)))
 
-(shell-show-instaparse-jlir)
+(shell-show-instaparse-rbir)
 
 (defn shell-open-both-instaparse-set-in-subl []
   (do
-    (utils/shell-open-file-in-sublime (str base-dir "instaparse_set.jl"))
-    (utils/shell-open-file-in-sublime (str base-dir "instaparse_set.jlir"))))
+    (utils/shell-open-file-in-sublime (str base-dir "instaparse_client_socket.rb"))
+    (utils/shell-open-file-in-sublime (str base-dir "instaparse_client_socket.rbir"))))
 
-(shell-open-both-instaparse-set-in-subl)
+;(shell-open-both-instaparse-set-in-subl)
 
 (def parser (insta/parser
-             "jlir = space | lparen space number space rparen | space
+             "rbir = space | lparen space number space rparen | space
               <lparen> = <'('>
               <rparen> = <')'>
               number = #'[0-9]+'

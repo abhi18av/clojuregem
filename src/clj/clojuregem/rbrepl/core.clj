@@ -23,6 +23,12 @@
 
 (rbrepl/ruby-create-rbir-expr-with-driver-file "def add9( x) x + 9 end ")
 
+(rbrepl/ruby-create-rbir-expr-with-driver-file " '1' ")
+
+
+(rbrepl/ruby-create-rbir-expr-with-driver-file " 1 + 1 + 1 ")
+
+
 ;(rbrepl/ruby-eval-expr-with-driver-file "Expr(:call, :+, 1, 1)")
 
 ;(rbrepl/ruby-eval-expr-with-driver-file "function add9(x) x + 9 end ; add9(9)")
