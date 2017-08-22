@@ -33,7 +33,13 @@
 
 ;(rbrepl/ruby-eval-expr-with-driver-file "function add9(x) x + 9 end ; add9(9)")
 
-(rbrepl/ruby-create-rb-expr-from-rbir-with-driver-file "(:call, :+, 1, 1)")
+(rbrepl/ruby-create-rb-expr-from-rbir-with-driver-file 
+"s(:send,
+  s(:send,
+    s(:int, 1), :+,
+    s(:int, 1)), :+,
+  s(:int, 1))
+")
 
 
 ;; EXPERIMENTATION

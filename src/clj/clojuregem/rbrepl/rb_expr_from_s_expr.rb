@@ -1,17 +1,22 @@
+require "parser"
+require "unparser"
 
 
-# parse_reverse: parse expr in reverse :p 
-function parse_reverse(S_expr::Tuple)
-
-    expr =  Any[isa(i, Tuple) ? parse_reverse(i) : i for i in S_expr]
-    #println(expr)
-    return Expr(expr... );
-
+module SExp
+  def s(type, *children)
+    Parser::AST::Node.new(type, children)
+  end
 end
- 
+
+include SExp
 
 
-expr = ARGS[1]
-parsed_expr = parse(expr) |> eval
 
-parse_reverse(parsed_expr) |> show
+node = ARGV[0]
+
+
+evald_node = eval(node)
+
+puts Unparser.unparse(evald_node)
+
+

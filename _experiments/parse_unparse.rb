@@ -1,6 +1,3 @@
-
-
-
 require 'parser/current'
 require "unparser"
 
@@ -23,15 +20,16 @@ include SExp
 
 
 
-node1 = s(:def, :add9,
+node1 = "s(:def, :add9,
   s(:args,
     s(:arg, :x)),
   s(:send,
     s(:lvar, :x), :+,
-    s(:int, 9)))
+    s(:int, 9)))"
 
+evald_node1 = eval(node1)
 
-puts Unparser.unparse(node1) 
+puts Unparser.unparse(evald_node1)
 
 
 
@@ -151,5 +149,4 @@ node2 =  s(:def, :test_many_clients,
           s(:sym, :close))))))
 
 
-puts Unparser.unparse(node2) 
-
+puts Unparser.unparse(node2)
