@@ -48,8 +48,8 @@
   (with-programs [ruby]
     (ruby driver-file ruby-expression)))
 
-(with-programs [ruby]
-  (ruby "./src/clj/rbrepl/create_s_expr.rb" "1 + 1"))
+;(with-programs [ruby]
+;  (ruby "./src/clj/rbrepl/create_s_expr.rb" "1 + 1"))
 
 
 
@@ -60,8 +60,6 @@
 (defn shell-show-file-content [file-name]
   (with-programs [cat]
     (cat file-name)))
-
-
 
 
 

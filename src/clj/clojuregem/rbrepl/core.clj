@@ -32,7 +32,7 @@
 
 ;; EXPERIMENTATION
 
-(rbrepl/ruby-create-jl-expr-from-rbir-with-driver-file "(:const,(:(=),(:curly, :AbstractVector, :T),(:curly, :AbstractArray, :T, 1)))")
+(rbrepl/ruby-create-rb-expr-from-rbir-with-driver-file "(:const,(:(=),(:curly, :AbstractVector, :T),(:curly, :AbstractArray, :T, 1)))")
 
 (rbrepl/ruby-create-rbir-expr-with-driver-file "function add9( x) x + 9 end ")
 
