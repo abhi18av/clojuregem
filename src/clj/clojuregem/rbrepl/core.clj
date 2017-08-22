@@ -17,11 +17,11 @@
 (rbrepl/shell-open-both-scratch-in-subl)
 
 ;; CLI related work
-(utils/ruby-eval-cli " require 'parser'; require 'unparser' ; eval(Expr(:call, :print, Expr(:call, :+, 1, 1)))")
+;(utils/ruby-eval-cli " require 'parser'; require 'unparser' ; Parse::Ruby23.parse(/" 1 + 1 /")")
 
 (rbrepl/ruby-create-rbir-expr-with-driver-file "p \"Hello, Ruby! \" ")
 
-(rbrepl/ruby-create-rbir-expr-with-driver-file "function add9( x) x + 9 end ")
+(rbrepl/ruby-create-rbir-expr-with-driver-file "def add9( x) x + 9 end ")
 
 (rbrepl/ruby-eval-expr-with-driver-file "Expr(:call, :+, 1, 1)")
 

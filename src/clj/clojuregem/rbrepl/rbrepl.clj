@@ -73,7 +73,7 @@
     (utils/ruby-eval-expr-with-driver driver-file ruby-expression)))
 
 (defn ruby-create-rbir-expr-with-driver-file
-  "Working on the "
+  "Working on the creation of the RBIR using a driver file"
   [ruby-expression]
   (let [driver-file (str base-dir "create_s_expr.rb")]
     (utils/ruby-eval-expr-with-driver driver-file ruby-expression)))

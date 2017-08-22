@@ -48,6 +48,12 @@
   (with-programs [ruby]
     (ruby driver-file ruby-expression)))
 
+(with-programs [ruby]
+  (ruby "./src/clj/rbrepl/create_s_expr.rb" "1 + 1"))
+
+
+
+
 (defn shell-save-to-file [file-name ruby-expression]
   (spit file-name ruby-expression))
 
