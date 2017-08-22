@@ -1,11 +1,17 @@
-function create_s_expr(expr::String)
+require "parser"
+require "unparser"
 
-parsed_expr = parse(expr)
-return Meta.show_sexpr(parsed_expr)
+def create_s_expr(expr)
+
+s_expr = Parser::Ruby23.parse(expr)
+return s_expr
+
 end
 
 
 
-expr = ARGS[1]
-create_s_expr(expr) |> show
+
+expr = ARGV[0]
+p create_s_expr(expr)
+
 
