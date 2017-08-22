@@ -1,0 +1,11 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "active_support/array_inquirer")),
+  s(:class,
+    s(:const, nil, :Array), nil,
+    s(:def, :inquiry,
+      s(:args),
+      s(:send,
+        s(:const,
+          s(:const, nil, :ActiveSupport), :ArrayInquirer), :new,
+        s(:self)))))

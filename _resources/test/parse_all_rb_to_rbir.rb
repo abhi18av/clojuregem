@@ -6,7 +6,7 @@ for f in files
 	newFile = oldFile + ".rbir"
 
 	rb_exec = "ruby"
-	cmd = rb_exec + " rb_file_to_s_expr.rb " + f + " > " + newFile
+	cmd = rb_exec + " file_to_rbir.rb " + f + " > " + newFile
 	system(cmd)
 
 end
