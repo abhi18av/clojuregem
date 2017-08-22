@@ -10,8 +10,9 @@ end
 
 
 
-
 expr = ARGV[0]
+
+#expr = "def add9(x) x + 9 end"
 p create_s_expr(expr)
 
 

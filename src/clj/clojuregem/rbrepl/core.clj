@@ -19,15 +19,15 @@
 ;; CLI related work
 ;(utils/ruby-eval-cli " require 'parser'; require 'unparser' ; Parse::Ruby23.parse(/" 1 + 1 /")")
 
-(rbrepl/ruby-create-rbir-expr-with-driver-file "p \"Hello, Ruby! \" ")
+;(rbrepl/ruby-create-rbir-expr-with-driver-file "p \"Hello, Ruby! \" ")
 
 (rbrepl/ruby-create-rbir-expr-with-driver-file "def add9( x) x + 9 end ")
 
-(rbrepl/ruby-eval-expr-with-driver-file "Expr(:call, :+, 1, 1)")
+;(rbrepl/ruby-eval-expr-with-driver-file "Expr(:call, :+, 1, 1)")
 
-(rbrepl/ruby-eval-expr-with-driver-file "function add9(x) x + 9 end ; add9(9)")
+;(rbrepl/ruby-eval-expr-with-driver-file "function add9(x) x + 9 end ; add9(9)")
 
-(rbrepl/ruby-create-jl-expr-from-rbir-with-driver-file "(:call, :+, 1, 1)")
+(rbrepl/ruby-create-rb-expr-from-rbir-with-driver-file "(:call, :+, 1, 1)")
 
 
 ;; EXPERIMENTATION
