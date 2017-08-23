@@ -26,7 +26,7 @@
 (rbrepl/ruby-create-rbir-expr-with-driver-file " '1' ")
 
 
-(rbrepl/ruby-create-rbir-expr-with-driver-file " 1 + 1 + 1 ")
+(rbrepl/ruby-create-rbir-expr-with-driver-file " 1 + 1 - 1 ")
 
 
 ;(rbrepl/ruby-eval-expr-with-driver-file "Expr(:call, :+, 1, 1)")
@@ -37,9 +37,13 @@
 "s(:send,
   s(:send,
     s(:int, 1), :+,
-    s(:int, 1)), :+,
-  s(:int, 1))
-")
+    s(:int, 1)), :-,
+  s(:int, 1)) ")
+
+
+(rbrepl/ruby-create-rb-expr-from-rbir-with-driver-file
+ "s(:str, \"1\")")
+
 
 
 ;; EXPERIMENTATION
