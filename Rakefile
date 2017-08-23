@@ -60,10 +60,11 @@ for f in array
     file_extension = f.split(".")[-1]
 
     if file_extension == extension
+      nil
     else
       cmd = "rm " + f
-      #puts cmd
-      system(cmd)
+      puts cmd
+      #system(cmd)
     end
   end
 
