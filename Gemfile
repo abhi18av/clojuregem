@@ -38,3 +38,6 @@ gem "pry-doc", "~> 0.11.1"
 
 # Added at 2017-08-23 13:40:30 +0530 by eklavya:
 gem "rufo", "~> 0.1.0"
+
+# Added at 2017-08-23 13:46:05 +0530 by eklavya:
+gem "rspec", "~> 3.6"
