@@ -25,7 +25,6 @@
 
 (rbrepl/ruby-create-rbir-expr-with-driver-file " '1' ")
 
-
 (rbrepl/ruby-create-rbir-expr-with-driver-file " 1 + 1 - 1 ")
 
 
@@ -41,7 +40,8 @@
   s(:int, 1)) ")
 
 
-(rbrepl/ruby-create-rb-expr-from-rbir-with-driver-file "s(:if,
+(rbrepl/ruby-create-rb-expr-from-rbir-with-driver-file
+ "s(:if,
   s(:send,
     s(:ivar, :@ready_state), :>,
     s(:const, nil, :OPEN)),
@@ -54,12 +54,6 @@
  "s(:str, \"1\")")
 
 
-
-;; EXPERIMENTATION
-
-(rbrepl/ruby-create-rb-expr-from-rbir-with-driver-file "(:const,(:(=),(:curly, :AbstractVector, :T),(:curly, :AbstractArray, :T, 1)))")
-
-(rbrepl/ruby-create-rbir-expr-with-driver-file "function add9( x) x + 9 end ")
 
 
 (defn -main
