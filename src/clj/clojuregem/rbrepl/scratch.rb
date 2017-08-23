@@ -1,6 +1,3 @@
-
-
-
 require 'parser'
 require "unparser"
 
@@ -31,7 +28,7 @@ node1 = s(:def, :add9,
     s(:int, 9)))
 
 
-puts Unparser.unparse(node1) 
+puts Unparser.unparse(node1)
 
 
 
@@ -151,5 +148,4 @@ node2 =  s(:def, :test_many_clients,
           s(:sym, :close))))))
 
 
-puts Unparser.unparse(node2) 
-
+puts Unparser.unparse(node2)
