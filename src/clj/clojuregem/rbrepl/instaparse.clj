@@ -39,13 +39,16 @@
 ;(shell-open-both-instaparse-set-in-subl)
 
 (def parser (insta/parser
-             "rbir = space | lparen space number space rparen | space
-              <lparen> = <'('>
-              <rparen> = <')'>
-              number = #'[0-9]+'
-              <space> = <#'[ ]*'>"))
+"
+rbir = lparen operation rparen
+<lparen> = <'('>
+<rparen> = <')'>
+operation = operator + args
+operator = '+'
+args = snumber+
+<snumber> = space number
+<space> = <#'[ ]*'>
+number = #'[0-9]+'
+"))
 
-(parser "(1)")
-
-(parser "( 1 )")
-
+(parser "(+ 1 2)")
