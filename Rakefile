@@ -60,11 +60,12 @@ for f in array
     file_extension = f.split(".")[-1]
 
     if file_extension == extension
+      #puts f
       nil
     else
       cmd = "rm " + f
-      puts cmd
-      #system(cmd)
+      #puts "==> " + cmd
+      system(cmd)
     end
   end
 
@@ -84,14 +85,14 @@ end
 
 desc "Clean CLJS source in CLJC src/cljc/clojuregem/sources-cljs/"
 task :clean_cljs_in_cljc do
-  clean_up(CLJS_SOURCE_IN_CLJ, "cljc")
+  clean_up(CLJS_SOURCE_IN_CLJC, "cljc")
 end
 
 
 
 desc "Clean CLJS source in CLJS src/cljs/clojuregem/sources-cljs/"
 task :clean_cljs_in_cljs do
-  clean_up(CLJS_SOURCE_IN_CLJ, "cljs")
+  clean_up(CLJS_SOURCE_IN_CLJS, "cljs")
 end
 
 
