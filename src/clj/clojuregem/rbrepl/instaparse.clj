@@ -38,7 +38,7 @@
 ;(shell-open-both-instaparse-set-in-subl)
 
 (def parser (insta/parser
-             "
+"
 rbir = lparen operation rparen
 <lparen> = <'('>
 <rparen> = <')'>
@@ -55,7 +55,6 @@ number = #'[0-9]+'
 (parser "(* 1 2)")
 (parser "(/ 1 2)")
 
-(parser "(++  1 2)")
 
 
 (defn choose-op [op] (case op
@@ -71,4 +70,3 @@ number = #'[0-9]+'
   (->> (parser input) (insta/transform transform-options)))
 
 (lisp "(/ 9 2)")
-
