@@ -1,6 +1,6 @@
 require 'find'
    ALL_SOURCE_FILES = []
- Find.find('./src') do |path|
+   Find.find('./src') do |path|
    ALL_SOURCE_FILES << path if path =~ /.*\.clj.*$/
  end
 
@@ -52,10 +52,30 @@ end
 ##########
 
 
+def clean_up(array, extension)
+for f in array
 
+  if f.include?("sources-cljs")
+
+    file_extension = f.split(".")[-1]
+
+    if file_extension == extension
+    else
+      cmd = "rm " + f
+      #puts cmd
+      system(cmd)
+    end
+  end
+
+end
+
+end
+
+
+##########
 desc "Clean CLJS source in CLJ src/clj/clojuregem/sources-cljs/"
 task :clean_cljs_in_clj do
-  sh ""
+  clean_up(CLJS_SOURCE_IN_CLJ, "clj")
 end
 
 
@@ -63,14 +83,14 @@ end
 
 desc "Clean CLJS source in CLJC src/cljc/clojuregem/sources-cljs/"
 task :clean_cljs_in_cljc do
-  sh ""
+  clean_up(CLJS_SOURCE_IN_CLJ, "cljc")
 end
 
 
 
 desc "Clean CLJS source in CLJS src/cljs/clojuregem/sources-cljs/"
 task :clean_cljs_in_cljs do
-  sh ""
+  clean_up(CLJS_SOURCE_IN_CLJ, "cljs")
 end
 
 
