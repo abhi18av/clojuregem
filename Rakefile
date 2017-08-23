@@ -6,11 +6,11 @@ require 'find'
 
 #puts ALL_SOURCE_FILES
 
- CLJS_IN_CLJ = []
+ CLJS_SOURCE_IN_CLJ = []
 
- CLJS_IN_CLJC = []
+ CLJS_SOURCE_IN_CLJC = []
 
- CLJS_IN_CLJS = []
+ CLJS_SOURCE_IN_CLJS = []
 
 
 arr = ALL_SOURCE_FILES
@@ -19,51 +19,35 @@ for i in (0..arr.length-1)
 
   #puts arr[i].split("/")[2]
   folder_name = arr[i].split("/")[2]
+  file_name =  arr[i]
 
   case
 
     when folder_name == "clj"
-    puts "CLJ"
+      #puts "CLJ"
+      CLJS_SOURCE_IN_CLJ << file_name
 
    when folder_name == "cljc"
-    puts "CLJC"
+    #puts "CLJC"
+    CLJS_SOURCE_IN_CLJC << file_name
 
    when folder_name == "cljs"
-    puts "CLJS"
-
-  else
-    puts "Check th
-for i in (0..arr.length)
-
-  #puts arr[i].split("/")[2]
-  folder_name = arr[i].split("/")[2] 
-
-  case
-
-    when folder_name == "clj"
-    puts "CLJ"
-
-  when folder_name == "cljc"
-    puts "CLJC"
-
-  when folder_name == "cljs"
-    puts "CLJS"
+    #puts "CLJS"
+    CLJS_SOURCE_IN_CLJS << file_name
 
   else
     puts "Check the logic again"
-end
-
-end
-
-e logic again"
 
   end
 
 end
 
 
+#puts CLJS_SOURCE_IN_CLJ
 
+#puts CLJS_SOURCE_IN_CLJS
 
+#puts CLJS_SOURCE_IN_CLJC
 
 ##########
 
