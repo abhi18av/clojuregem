@@ -35,3 +35,6 @@ gem "ruby_parser", "~> 3.10"
 
 # Added at 2017-08-20 22:20:59 +0530 by eklavya:
 gem "pry-doc", "~> 0.11.1"
+
+# Added at 2017-08-23 13:40:30 +0530 by eklavya:
+gem "rufo", "~> 0.1.0"

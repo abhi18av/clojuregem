@@ -69,6 +69,7 @@ GEM
     ruby-progressbar (1.8.1)
     ruby_parser (3.10.1)
       sexp_processor (~> 4.9)
+    rufo (0.1.0)
     sexp_processor (4.10.0)
     slop (3.6.0)
     thread_safe (0.3.6)
@@ -102,6 +103,7 @@ DEPENDENCIES
   ruby-debug-ide (= 0.6.0)
   ruby-lint (~> 2.3)
   ruby_parser (~> 3.10)
+  rufo (~> 0.1.0)
   unparser (~> 0.2.6)
 
 BUNDLED WITH
