@@ -43,7 +43,7 @@ rbir = lparen operation rparen
 <lparen> = <'('>
 <rparen> = <')'>
 operation = operator + args
-operator = '+' | '-'
+operator = '+' | '-' | '*' | '/'
 args = snumber+
 <snumber> = space number
 <space> = <#'[ ]*'>
@@ -51,13 +51,18 @@ number = #'[0-9]+'
 "))
 
 (parser "(+ 1 2)")
-
-
 (parser "(- 1 2)")
+(parser "(* 1 2)")
+(parser "(/ 1 2)")
+
+(parser "(++  1 2)")
+
 
 (defn choose-op [op] (case op
                        "+" +
-                       "-" -))
+                       "-" -
+                       "*" *
+                       "/" /))
 
 (def transform-options
   {:number read-string :args vector :operator choose-op :operation apply :sexp identity})
@@ -65,5 +70,5 @@ number = #'[0-9]+'
 (defn lisp [input]
   (->> (parser input) (insta/transform transform-options)))
 
-(lisp "(- 9 2)")
+(lisp "(/ 9 2)")
 

@@ -34,6 +34,16 @@
                             [org.clojure/test.check "0.10.0-alpha2"]
 
 
+                 ;; Asynchronous stuff
+                 [org.clojure/core.async "0.3.443"]
+
+                 ;; Pattern matching in clojure
+                 [org.clojure/core.match "0.3.0-alpha5"]
+
+                 ;; MiniKanren
+                 [org.clojure/core.logic "0.8.11"]
+
+
                             ;; Documentation using marginalia
                             [lein-marginalia "0.9.0"]
 
