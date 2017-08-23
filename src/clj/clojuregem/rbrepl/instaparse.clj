@@ -4,7 +4,6 @@
 
 (def base-dir "./src/clj/clojuregem/rbrepl/")
 
-
 (defn ruby-create-instaparse-set-rbir
   "Convert the scratch file to it's RBIR version and show"
   []
@@ -39,12 +38,12 @@
 ;(shell-open-both-instaparse-set-in-subl)
 
 (def parser (insta/parser
-"
+             "
 rbir = lparen operation rparen
 <lparen> = <'('>
 <rparen> = <')'>
 operation = operator + args
-operator = '+'
+operator = '+' | '-'
 args = snumber+
 <snumber> = space number
 <space> = <#'[ ]*'>
@@ -52,3 +51,19 @@ number = #'[0-9]+'
 "))
 
 (parser "(+ 1 2)")
+
+
+(parser "(- 1 2)")
+
+(defn choose-op [op] (case op
+                       "+" +
+                       "-" -))
+
+(def transform-options
+  {:number read-string :args vector :operator choose-op :operation apply :sexp identity})
+
+(defn lisp [input]
+  (->> (parser input) (insta/transform transform-options)))
+
+(lisp "(- 9 2)")
+
