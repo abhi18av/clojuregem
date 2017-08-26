@@ -14,6 +14,30 @@
 (ast-magic '(let [a 1 a a] a))
 
 
+
+
+
+(ast-magic '(defn- checked-aset
+   ([array idx val]
+    (try
+      (assert (or (array? array) (js/goog.isArrayLike array)))
+      (assert (number? idx))
+      (assert (not (neg? idx)))
+      (assert (< idx (alength array)))
+      (catch :default e
+        (maybe-warn e)))
+    (unchecked-set array idx val))
+   ([array idx idx2 & idxv]
+    (apply checked-aset (checked-aget array idx) idx2 idxv))))
+
+
+(ast-magic '(defn is_proto_
+   [x]
+   (identical? (.-prototype (.-constructor x)) x)))
+
+
+
+
 (def add9-ast (ast-magic    '(defn add9 ([x] (+ x 9))
                            ([x y] (+ x y 9)))))
 
