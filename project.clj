@@ -26,6 +26,9 @@
                             [org.clojure/tools.analyzer "0.6.9"]
 
 
+                            ;; Concrete implementation of tools.analyzer
+                            [org.clojure/tools.analyzer.jvm "0.7.0"]
+
                             ;; Clojure reader in clojure
                             [org.clojure/tools.reader "1.0.5"]
 
