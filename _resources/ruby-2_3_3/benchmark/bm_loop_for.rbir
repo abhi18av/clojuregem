@@ -1,0 +1,5 @@
+s(:for,
+  s(:lvasgn, :i),
+  s(:irange,
+    s(:int, 1),
+    s(:int, 30000000)), nil)

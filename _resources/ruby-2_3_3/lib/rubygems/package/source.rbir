@@ -1,0 +1,4 @@
+s(:class,
+  s(:const,
+    s(:const,
+      s(:const, nil, :Gem), :Package), :Source), nil, nil)

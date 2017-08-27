@@ -1,0 +1,5 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "rubygems/source")),
+  s(:send, nil, :require,
+    s(:str, "rubygems/source_local")))

@@ -1,0 +1,5 @@
+s(:def, :default_src_encoding,
+  s(:args),
+  s(:return,
+    s(:const,
+      s(:const, nil, :Encoding), :UTF_8)))

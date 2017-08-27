@@ -1,0 +1,6 @@
+s(:class,
+  s(:const,
+    s(:const,
+      s(:const, nil, :Gem), :Ext), :BuildError),
+  s(:const,
+    s(:const, nil, :Gem), :InstallError), nil)

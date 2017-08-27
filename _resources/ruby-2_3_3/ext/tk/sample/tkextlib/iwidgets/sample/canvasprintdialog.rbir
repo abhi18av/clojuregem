@@ -1,0 +1,12 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "tk")),
+  s(:send, nil, :require,
+    s(:str, "tkextlib/iwidgets")),
+  s(:send,
+    s(:send,
+      s(:const,
+        s(:const,
+          s(:const, nil, :Tk), :Iwidgets), :Canvasprintdialog), :new), :activate),
+  s(:send,
+    s(:const, nil, :Tk), :mainloop))

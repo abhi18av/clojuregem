@@ -1,0 +1,5 @@
+s(:send, nil, :exclude,
+  s(:regexp,
+    s(:str, "_stack_size$"),
+    s(:regopt)),
+  s(:str, "often too expensive"))

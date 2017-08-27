@@ -1,0 +1,3 @@
+s(:send, nil, :assert_equal,
+  s(:str, "E"),
+  s(:str, "$_ = \"E\"; eval(\"nil if true..~/^E/\",nil,\"-e\"); $_"))

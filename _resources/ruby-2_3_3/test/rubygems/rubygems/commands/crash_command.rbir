@@ -1,0 +1,8 @@
+s(:class,
+  s(:const,
+    s(:const,
+      s(:const, nil, :Gem), :Commands), :CrashCommand),
+  s(:const,
+    s(:const, nil, :Gem), :Command),
+  s(:send, nil, :raise,
+    s(:str, "crash")))

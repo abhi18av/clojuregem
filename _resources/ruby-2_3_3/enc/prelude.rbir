@@ -1,0 +1,7 @@
+s(:kwbegin,
+  s(:rescue,
+    s(:send, nil, :require,
+      s(:str, "unicode_normalize")),
+    s(:resbody,
+      s(:array,
+        s(:const, nil, :LoadError)), nil, nil), nil))

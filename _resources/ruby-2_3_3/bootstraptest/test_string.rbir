@@ -1,0 +1,5 @@
+s(:send, nil, :assert_normal_exit,
+  s(:dstr,
+    s(:str, "\n"),
+    s(:str, "  inspect.clear\n")),
+  s(:str, "[ruby-core:68110]"))

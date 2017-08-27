@@ -1,0 +1,5 @@
+s(:class,
+  s(:const,
+    s(:const, nil, :RDoc), :MetaMethod),
+  s(:const,
+    s(:const, nil, :RDoc), :AnyMethod), nil)

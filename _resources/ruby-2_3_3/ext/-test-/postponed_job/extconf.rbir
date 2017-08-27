@@ -1,0 +1,2 @@
+s(:send, nil, :create_makefile,
+  s(:str, "-test-/postponed_job"))

@@ -1,0 +1,13 @@
+s(:begin,
+  s(:class,
+    s(:const, nil, :CGI), nil, nil),
+  s(:send, nil, :require,
+    s(:str, "cgi/core")),
+  s(:send, nil, :require,
+    s(:str, "cgi/cookie")),
+  s(:send, nil, :require,
+    s(:str, "cgi/util")),
+  s(:send,
+    s(:const, nil, :CGI), :autoload,
+    s(:sym, :HtmlExtension),
+    s(:str, "cgi/html")))

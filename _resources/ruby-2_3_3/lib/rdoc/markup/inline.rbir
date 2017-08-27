@@ -1,0 +1,4 @@
+s(:if,
+  s(:gvar, :$-w),
+  s(:send, nil, :warn,
+    s(:str, "requiring rdoc/markup/inline is deprecated and will be removed in RDoc 4.")), nil)

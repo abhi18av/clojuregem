@@ -1,0 +1,7 @@
+s(:send, nil, :assert_equal,
+  s(:str, "Struct::Foo"),
+  s(:dstr,
+    s(:str, "\n"),
+    s(:str, "  Struct.instance_eval { const_set(:Foo, nil) }\n"),
+    s(:str, "  Struct.new(\"Foo\")\n"),
+    s(:str, "  Struct::Foo\n")))

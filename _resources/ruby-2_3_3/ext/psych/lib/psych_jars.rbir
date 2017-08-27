@@ -1,0 +1,12 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "psych/versions")),
+  s(:send, nil, :require,
+    s(:str, "psych.jar")),
+  s(:send, nil, :require,
+    s(:str, "jar-dependencies")),
+  s(:send, nil, :require_jar,
+    s(:str, "org.yaml"),
+    s(:str, "snakeyaml"),
+    s(:const,
+      s(:const, nil, :Psych), :DEFAULT_SNAKEYAML_VERSION)))

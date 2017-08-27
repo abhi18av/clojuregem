@@ -1,0 +1,10 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "securerandom")),
+  s(:block,
+    s(:send,
+      s(:int, 200000), :times),
+    s(:args),
+    s(:send,
+      s(:const, nil, :SecureRandom), :random_number,
+      s(:int, 100))))

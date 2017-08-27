@@ -1,0 +1,13 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "psych/visitors/visitor")),
+  s(:send, nil, :require,
+    s(:str, "psych/visitors/to_ruby")),
+  s(:send, nil, :require,
+    s(:str, "psych/visitors/emitter")),
+  s(:send, nil, :require,
+    s(:str, "psych/visitors/yaml_tree")),
+  s(:send, nil, :require,
+    s(:str, "psych/visitors/json_tree")),
+  s(:send, nil, :require,
+    s(:str, "psych/visitors/depth_first")))

@@ -1,0 +1,13 @@
+s(:module,
+  s(:const, nil, :Kernel),
+  s(:begin,
+    s(:def, :y,
+      s(:args,
+        s(:restarg, :objects)),
+      s(:send, nil, :puts,
+        s(:send,
+          s(:const, nil, :Psych), :dump_stream,
+          s(:splat,
+            s(:lvar, :objects))))),
+    s(:send, nil, :private,
+      s(:sym, :y))))

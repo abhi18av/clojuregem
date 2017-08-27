@@ -1,0 +1,10 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "mkmf")),
+  s(:gvasgn, :$INSTALLFILES,
+    s(:hash,
+      s(:pair,
+        s(:str, "digest.h"),
+        s(:str, "$(HDRDIR)")))),
+  s(:send, nil, :create_makefile,
+    s(:str, "digest")))

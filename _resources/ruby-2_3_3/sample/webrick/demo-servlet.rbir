@@ -1,0 +1,12 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "webrick")),
+  s(:send, nil, :require,
+    s(:str, "./demo-app")),
+  s(:class,
+    s(:const, nil, :DemoServlet),
+    s(:const,
+      s(:const,
+        s(:const, nil, :WEBrick), :HTTPServlet), :AbstractServlet),
+    s(:send, nil, :include,
+      s(:const, nil, :DemoApplication))))

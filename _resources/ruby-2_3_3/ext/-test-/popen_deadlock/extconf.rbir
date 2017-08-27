@@ -1,0 +1,11 @@
+s(:case,
+  s(:const, nil, :RUBY_PLATFORM),
+  s(:when,
+    s(:regexp,
+      s(:str, "solaris"),
+      s(:regopt, :i)),
+    s(:regexp,
+      s(:str, "linux"),
+      s(:regopt, :i)),
+    s(:send, nil, :create_makefile,
+      s(:str, "-test-/popen_deadlock/infinite_loop_dlsym"))), nil)

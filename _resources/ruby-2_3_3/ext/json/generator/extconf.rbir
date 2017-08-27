@@ -1,0 +1,8 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "mkmf")),
+  s(:send,
+    s(:gvar, :$defs), :<<,
+    s(:str, "-DJSON_GENERATOR")),
+  s(:send, nil, :create_makefile,
+    s(:str, "json/ext/generator")))

@@ -1,0 +1,5 @@
+s(:block,
+  s(:send,
+    s(:int, 30000000), :times),
+  s(:args,
+    s(:arg, :e)), nil)

@@ -1,0 +1,10 @@
+s(:begin,
+  s(:lvasgn, :i,
+    s(:int, 0)),
+  s(:while,
+    s(:send,
+      s(:lvar, :i), :<,
+      s(:int, 30000000)),
+    s(:op_asgn,
+      s(:lvasgn, :i), :+,
+      s(:int, 1))))

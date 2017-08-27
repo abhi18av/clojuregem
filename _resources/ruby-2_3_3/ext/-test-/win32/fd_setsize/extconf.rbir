@@ -1,0 +1,6 @@
+s(:if,
+  s(:or,
+    s(:gvar, :$mingw),
+    s(:gvar, :$mswin)),
+  s(:send, nil, :create_makefile,
+    s(:str, "-test-/win32/fd_setsize")), nil)

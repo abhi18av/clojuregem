@@ -1,0 +1,7 @@
+s(:class,
+  s(:const, nil, :Shell), nil,
+  s(:begin,
+    s(:ivasgn, :@RELEASE_VERSION,
+      s(:str, "0.7")),
+    s(:ivasgn, :@LAST_UPDATE_DATE,
+      s(:str, "07/03/20"))))

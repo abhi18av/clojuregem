@@ -1,0 +1,10 @@
+s(:block,
+  s(:send,
+    s(:int, 100000), :times),
+  s(:args),
+  s(:send,
+    s(:const, nil, :Marshal), :load,
+    s(:send,
+      s(:const, nil, :Marshal), :dump,
+      s(:send,
+        s(:const, nil, :Time), :now))))

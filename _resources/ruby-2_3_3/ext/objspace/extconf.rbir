@@ -1,0 +1,11 @@
+s(:begin,
+  s(:send,
+    s(:gvar, :$INCFLAGS), :<<,
+    s(:str, " -I$(topdir) -I$(top_srcdir)")),
+  s(:send,
+    s(:send,
+      s(:gvar, :$VPATH), :<<,
+      s(:str, "$(topdir)")), :<<,
+    s(:str, "$(top_srcdir)")),
+  s(:send, nil, :create_makefile,
+    s(:str, "objspace")))

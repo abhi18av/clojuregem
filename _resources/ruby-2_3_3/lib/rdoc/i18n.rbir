@@ -1,0 +1,10 @@
+s(:module,
+  s(:const,
+    s(:const, nil, :RDoc), :I18n),
+  s(:begin,
+    s(:send, nil, :autoload,
+      s(:sym, :Locale),
+      s(:str, "rdoc/i18n/locale")),
+    s(:send, nil, :autoload,
+      s(:sym, :Text),
+      s(:str, "rdoc/i18n/text"))))

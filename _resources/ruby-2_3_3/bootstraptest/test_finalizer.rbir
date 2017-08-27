@@ -1,0 +1,10 @@
+s(:send, nil, :assert_normal_exit,
+  s(:dstr,
+    s(:str, "\n"),
+    s(:str, "a1,a2,b1,b2=Array.new(4){\"\"}\n"),
+    s(:str, "ObjectSpace.define_finalizer(b2,proc{})\n"),
+    s(:str, "ObjectSpace.define_finalizer(b1,proc{b1.inspect})\n"),
+    s(:str, "\n"),
+    s(:str, "ObjectSpace.define_finalizer(a2,proc{a1.inspect})\n"),
+    s(:str, "ObjectSpace.define_finalizer(a1,proc{})\n")),
+  s(:str, "[ruby-dev:35778]"))

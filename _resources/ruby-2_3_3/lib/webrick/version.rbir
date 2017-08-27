@@ -1,0 +1,4 @@
+s(:module,
+  s(:const, nil, :WEBrick),
+  s(:casgn, nil, :VERSION,
+    s(:str, "1.3.1")))

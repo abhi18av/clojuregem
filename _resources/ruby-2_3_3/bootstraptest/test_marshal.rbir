@@ -1,0 +1,4 @@
+s(:send, nil, :assert_normal_exit,
+  s(:dstr,
+    s(:str, "\n"),
+    s(:str, "  Marshal.load(Marshal.dump({\"k\"=>\"v\"}), lambda {|v| v})\n")))

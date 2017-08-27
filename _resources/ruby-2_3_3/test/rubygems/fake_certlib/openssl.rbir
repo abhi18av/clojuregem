@@ -1,0 +1,3 @@
+s(:send, nil, :raise,
+  s(:const, nil, :LoadError),
+  s(:str, "no such file to load -- openssl"))

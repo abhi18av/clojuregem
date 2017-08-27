@@ -1,0 +1,4 @@
+s(:module,
+  s(:const, nil, :Psych),
+  s(:class,
+    s(:const, nil, :PrivateType), nil, nil))

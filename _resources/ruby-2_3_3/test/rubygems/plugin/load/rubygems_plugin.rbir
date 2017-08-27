@@ -1,0 +1,4 @@
+s(:class,
+  s(:const, nil, :TestGem), nil,
+  s(:casgn, nil, :TEST_PLUGIN_LOAD,
+    s(:sym, :loaded)))

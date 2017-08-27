@@ -1,0 +1,7 @@
+s(:send, nil, :load,
+  s(:send,
+    s(:const, nil, :File), :join,
+    s(:send,
+      s(:const, nil, :File), :dirname,
+      s(:str, "(string)")),
+    s(:str, "prepare_require.rb")))

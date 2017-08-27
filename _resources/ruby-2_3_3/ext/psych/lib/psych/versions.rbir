@@ -1,0 +1,5 @@
+s(:module,
+  s(:const, nil, :Psych),
+  s(:casgn, nil, :DEFAULT_SNAKEYAML_VERSION,
+    s(:send,
+      s(:str, "1.14"), :freeze)))

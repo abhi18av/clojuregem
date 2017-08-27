@@ -1,0 +1,8 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "mkmf")),
+  s(:send, nil, :have_func,
+    s(:str, "rb_block_call"),
+    s(:str, "ruby/ruby.h")),
+  s(:send, nil, :create_makefile,
+    s(:str, "racc/cparse")))

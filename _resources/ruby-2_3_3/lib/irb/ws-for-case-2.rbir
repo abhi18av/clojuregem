@@ -1,0 +1,7 @@
+s(:while,
+  s(:true),
+  s(:send,
+    s(:const,
+      s(:const, nil, :IRB), :BINDING_QUEUE), :push,
+    s(:lvasgn, :_,
+      s(:send, nil, :binding))))

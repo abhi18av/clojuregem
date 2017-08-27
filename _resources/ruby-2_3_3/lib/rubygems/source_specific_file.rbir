@@ -1,0 +1,2 @@
+s(:send, nil, :require,
+  s(:str, "rubygems/source/specific_file"))

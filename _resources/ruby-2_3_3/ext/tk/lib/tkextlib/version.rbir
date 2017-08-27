@@ -1,0 +1,5 @@
+s(:module,
+  s(:const, nil, :Tk),
+  s(:casgn, nil, :Tkextlib_RELEASE_DATE,
+    s(:send,
+      s(:str, "2010-02-01"), :freeze)))

@@ -1,0 +1,7 @@
+s(:module,
+  s(:const, nil, :IRB),
+  s(:begin,
+    s(:ivasgn, :@RELEASE_VERSION,
+      s(:str, "0.9.6")),
+    s(:ivasgn, :@LAST_UPDATE_DATE,
+      s(:str, "09/06/30"))))

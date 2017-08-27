@@ -1,0 +1,2 @@
+s(:send, nil, :require_relative,
+  s(:str, "optparse"))

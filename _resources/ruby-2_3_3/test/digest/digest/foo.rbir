@@ -1,0 +1,12 @@
+s(:module,
+  s(:const, nil, :Digest),
+  s(:begin,
+    s(:casgn, nil, :Foo,
+      s(:nil)),
+    s(:send, nil, :sleep,
+      s(:float, 0.2)),
+    s(:send, nil, :remove_const,
+      s(:sym, :Foo)),
+    s(:class,
+      s(:const, nil, :Foo),
+      s(:const, nil, :Class), nil)))

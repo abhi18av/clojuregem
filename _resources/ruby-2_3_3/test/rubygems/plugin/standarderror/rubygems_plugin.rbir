@@ -1,0 +1,8 @@
+s(:begin,
+  s(:casgn,
+    s(:const, nil, :TestGem), :TEST_PLUGIN_STANDARDERROR,
+    s(:sym, :loaded)),
+  s(:send, nil, :raise,
+    s(:send,
+      s(:const, nil, :StandardError), :new,
+      s(:str, "boom"))))

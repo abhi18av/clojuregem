@@ -1,0 +1,11 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "ripper/core")),
+  s(:send, nil, :require,
+    s(:str, "ripper/lexer")),
+  s(:send, nil, :require,
+    s(:str, "ripper/filter")),
+  s(:send, nil, :require,
+    s(:str, "ripper/sexp")),
+  s(:class,
+    s(:const, nil, :Ripper), nil, nil))

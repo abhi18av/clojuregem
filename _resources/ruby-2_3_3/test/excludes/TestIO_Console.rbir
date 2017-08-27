@@ -1,0 +1,3 @@
+s(:send, nil, :exclude,
+  s(:sym, :test_getpass),
+  s(:str, "not portable"))

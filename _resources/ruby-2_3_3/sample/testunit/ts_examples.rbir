@@ -1,0 +1,7 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "test/unit")),
+  s(:send, nil, :require,
+    s(:str, "tc_adder")),
+  s(:send, nil, :require,
+    s(:str, "tc_subtracter")))

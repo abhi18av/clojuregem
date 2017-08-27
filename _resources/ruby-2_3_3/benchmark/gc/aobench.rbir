@@ -1,0 +1,2 @@
+s(:send, nil, :require_relative,
+  s(:str, "../bm_app_aobench.rb"))

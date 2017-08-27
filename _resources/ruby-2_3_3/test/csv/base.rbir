@@ -1,0 +1,12 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "test/unit")),
+  s(:send, nil, :require,
+    s(:str, "csv")),
+  s(:send, nil, :require_relative,
+    s(:str, "../lib/with_different_ofs.rb")),
+  s(:class,
+    s(:const, nil, :TestCSV),
+    s(:const,
+      s(:const,
+        s(:const, nil, :Test), :Unit), :TestCase), nil))

@@ -1,0 +1,13 @@
+s(:class,
+  s(:const,
+    s(:const,
+      s(:const, nil, :Gem), :Resolver), :CurrentSet),
+  s(:const,
+    s(:const,
+      s(:const, nil, :Gem), :Resolver), :Set),
+  s(:def, :find_all,
+    s(:args,
+      s(:arg, :req)),
+    s(:send,
+      s(:send,
+        s(:lvar, :req), :dependency), :matching_specs)))

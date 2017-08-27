@@ -1,0 +1,12 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "fiddle/import")),
+  s(:module,
+    s(:const, nil, :Win32), nil),
+  s(:block,
+    s(:send,
+      s(:const, nil, :Win32), :module_eval),
+    s(:args),
+    s(:casgn, nil, :Importer,
+      s(:const,
+        s(:const, nil, :Fiddle), :Importer))))

@@ -1,0 +1,8 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "mkmf")),
+  s(:send,
+    s(:gvar, :$INCFLAGS), :<<,
+    s(:str, " -I$(top_srcdir)")),
+  s(:send, nil, :create_makefile,
+    s(:str, "strscan")))

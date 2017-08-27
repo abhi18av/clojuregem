@@ -1,0 +1,6 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "rubygems")),
+  s(:send,
+    s(:const, nil, :Gem), :use_paths,
+    s(:str, "test/mock/gems")))

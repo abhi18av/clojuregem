@@ -1,0 +1,7 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "tkextlib/setup.rb")),
+  s(:send, nil, :require,
+    s(:str, "tkextlib/itcl/setup.rb")),
+  s(:send, nil, :require,
+    s(:str, "tkextlib/itcl/incr_tcl.rb")))

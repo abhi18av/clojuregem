@@ -1,0 +1,11 @@
+s(:module,
+  s(:const, nil, :REXML),
+  s(:module,
+    s(:const, nil, :Validation),
+    s(:class,
+      s(:const, nil, :ValidationException),
+      s(:const, nil, :RuntimeError),
+      s(:def, :initialize,
+        s(:args,
+          s(:arg, :msg)),
+        s(:zsuper)))))

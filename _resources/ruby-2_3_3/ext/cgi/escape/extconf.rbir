@@ -1,0 +1,5 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "mkmf")),
+  s(:send, nil, :create_makefile,
+    s(:str, "cgi/escape")))

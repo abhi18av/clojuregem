@@ -1,0 +1,10 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "test/unit")),
+  s(:class,
+    s(:const, nil, :TestA),
+    s(:const,
+      s(:const,
+        s(:const, nil, :Test), :Unit), :TestCase),
+    s(:def, :test_nothing_test,
+      s(:args), nil)))

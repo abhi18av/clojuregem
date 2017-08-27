@@ -1,0 +1,5 @@
+s(:send, nil, :warn,
+  s(:dstr,
+    s(:str, "rbconfig/datadir.rb and {Rb}Config.datadir is being deprecated from "),
+    s(:str, "RubyGems. It will be removed completely on or after June 2011. If you "),
+    s(:str, "wish to rely on a datadir, please use Gem.datadir.")))

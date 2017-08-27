@@ -1,0 +1,12 @@
+s(:module,
+  s(:const, nil, :Errno),
+  s(:begin,
+    s(:class,
+      s(:const, nil, :EPROTO),
+      s(:const, nil, :SystemCallError), nil),
+    s(:class,
+      s(:const, nil, :ECONNRESET),
+      s(:const, nil, :SystemCallError), nil),
+    s(:class,
+      s(:const, nil, :ECONNABORTED),
+      s(:const, nil, :SystemCallError), nil)))

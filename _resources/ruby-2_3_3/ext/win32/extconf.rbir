@@ -1,0 +1,11 @@
+s(:if,
+  s(:and,
+    s(:send, nil, :compiled?,
+      s(:str, "fiddle")),
+    s(:or,
+      s(:or,
+        s(:gvar, :$mswin),
+        s(:gvar, :$mingw)),
+      s(:gvar, :$cygwin))),
+  s(:send, nil, :create_makefile,
+    s(:str, "win32")), nil)

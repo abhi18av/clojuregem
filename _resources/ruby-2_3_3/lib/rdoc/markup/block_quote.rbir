@@ -1,0 +1,13 @@
+s(:class,
+  s(:const,
+    s(:const,
+      s(:const, nil, :RDoc), :Markup), :BlockQuote),
+  s(:const,
+    s(:const,
+      s(:const, nil, :RDoc), :Markup), :Raw),
+  s(:def, :accept,
+    s(:args,
+      s(:arg, :visitor)),
+    s(:send,
+      s(:lvar, :visitor), :accept_block_quote,
+      s(:self))))

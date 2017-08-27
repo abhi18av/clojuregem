@@ -1,0 +1,9 @@
+s(:begin,
+  s(:send, nil, :require,
+    s(:str, "mkmf")),
+  s(:send, nil, :have_struct_member,
+    s(:str, "struct stat"),
+    s(:str, "st_birthtimespec"),
+    s(:str, "sys/stat.h")),
+  s(:send, nil, :create_makefile,
+    s(:str, "pathname")))

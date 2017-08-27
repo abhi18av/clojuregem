@@ -1,0 +1,7 @@
+s(:module,
+  s(:const,
+    s(:const,
+      s(:const, nil, :Gem), :Resolver), :Molinillo),
+  s(:casgn, nil, :VERSION,
+    s(:send,
+      s(:str, "0.4.1"), :freeze)))

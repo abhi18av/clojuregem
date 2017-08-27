@@ -1,0 +1,2 @@
+s(:send, nil, :require,
+  s(:str, "tk/menubar"))
