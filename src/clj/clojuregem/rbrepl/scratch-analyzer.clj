@@ -55,3 +55,12 @@
 
 (ana.jvm/analyze add9)
 
+(ana.jvm/analyze-ns 'clojuregem.rbrepl.scratch-analyzer-clj-core)
+
+
+(defn example [x y]
+   {:pre [(pos? x)
+          (neg? y)]
+    :post [(< 5 %)]}
+   (+ x y))
+
