@@ -1,0 +1,47 @@
+## This cleans the ruby source distribution from the non-ruby files
+
+require 'find'
+
+ALL_SOURCE = []
+
+
+Find.find('./ruby-2_3_3') do |path|
+   ALL_SOURCE << path 
+end
+
+
+#puts ALL_SOURCE_FILES
+
+
+
+arr_files = ALL_SOURCE.select do |f|
+				File.file?(f)
+			end
+
+
+
+desc "Clean the Ruby source code from non-ruby files"
+task :keep_only_pure_ruby do
+
+
+
+for i in (0..arr_files.length-1)
+
+  file_name = arr_files[i]
+  file_ext =  file_name.split(".")[-1]
+  
+  if file_ext != "rb" 
+  	cmd = "rm " + file_name
+  	#puts cmd
+  	system(cmd)
+  end
+
+end
+
+
+
+
+end
+
+
+
