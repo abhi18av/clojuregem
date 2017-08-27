@@ -8,7 +8,7 @@
 
 (ns ^{:doc "The core Clojure language."
        :author "Rich Hickey"}
-clojuregem.rbrepl.scratch-analyzer-cljs-core)
+clojuregem.rbrepl.scratch-analyzer-clj-core)
 
 (def unquote)
 (def unquote-splicing)
