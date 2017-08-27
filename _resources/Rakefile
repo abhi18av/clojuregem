@@ -45,3 +45,24 @@ end
 
 
 
+desc "Creates the RBIR files"
+task :create_rbir do
+
+
+for f in arr_files
+
+  oldFile = f.split(".")[1]
+  newFile = oldFile + ".rbir"
+
+  rb_exec = "ruby"
+  cmd = rb_exec + " rb_file_to_s_expr.rb " + f + " > " + newFile
+  puts cmd
+  #system(cmd)
+
+end
+
+
+end
+
+
+
