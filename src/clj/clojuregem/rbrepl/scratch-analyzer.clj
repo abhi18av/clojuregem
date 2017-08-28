@@ -53,7 +53,9 @@
 
 (ast-magic '(+ 1 1 (- 1 2)))
 
+
 (ana.jvm/analyze add9)
+
 
 (ana.jvm/analyze-ns 'clojuregem.rbrepl.scratch-analyzer-clj-core)
 
