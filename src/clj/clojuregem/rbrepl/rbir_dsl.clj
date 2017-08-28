@@ -2,22 +2,102 @@
     (:require [clojure.tools.analyzer.jvm :as ana.jvm]
               [clojure.tools.analyzer.passes.jvm.emit-form :as e]))
 
+(ana.jvm/analyze '1)
 
-(e/emit-hygienic-form (ana.jvm/analyze '(let [a 1 a a] a)))
+(def expr-map
+  (ana.jvm/analyze '(+ 1 2 (- 3 4))))
+
+;;;;output
+(comment
 
 
-  def test_empty_stmt
-    assert_parses(
-      nil,
-      %q{})
-  end
+{:args
+ [{:args
+   [{:op :const,
+     :env
+     {:context :ctx/expr,
+      :locals {},
+      :ns clojuregem.rbrepl.rbir-dsl,
+      :file
+      "/Users/eklavya/Projects/ProjectEklavya/Mordor/Clojewel/clojuregem/src/clj/clojuregem/rbrepl/rbir_dsl.clj",
+      :column 21,
+      :line 8},
+     :type :number,
+     :literal? true,
+     :val 1,
+     :form 1,
+     :o-tag long,
+     :tag long}
+    {:op :const,
+     :env
+     {:context :ctx/expr,
+      :locals {},
+      :ns clojuregem.rbrepl.rbir-dsl,
+      :file
+      "/Users/eklavya/Projects/ProjectEklavya/Mordor/Clojewel/clojuregem/src/clj/clojuregem/rbrepl/rbir_dsl.clj",
+      :column 21,
+      :line 8},
+     :type :number,
+     :literal? true,
+     :val 2,
+     :form 2,
+     :o-tag long,
+     :tag long}],
+   :children [:args],
+   :method add,
+   :op :static-call,
+   :env
+   {:context :ctx/expr,
+    :locals {},
+    :ns clojuregem.rbrepl.rbir-dsl,
+    :column 21,
+    :line 8,
+    :file
+    "/Users/eklavya/Projects/ProjectEklavya/Mordor/Clojewel/clojuregem/src/clj/clo:ns clojuregem.rbrepl.rbir-dsl",
+    :column 28,
+    :line 8,
+    :file
+    "/Users/eklavya/Projects/ProjectEklavya/Mordor/Clojewel/clojuregem/src/clj/clojuregem/rbrepl/rbir_dsl.clj"},
+   :o-tag long,
+   :class clojure.lang.Numbers,
+   :form (. clojure.lang.Numbers (minus 3 4)),
+   :tag long,
+   :validated? true,
+   :raw-forms ((- 3 4))}],
+ :children [:args],
+ :method add,
+ :op :static-call,
+ :env
+ {:context :ctx/expr,
+  :locals {},
+  :ns clojuregem.rbrepl.rbir-dsl,
+  :column 21,
+  :line 8,
+  :file
+  "/Users/eklavya/Projects/ProjectEklavya/Mordor/Clojewel/clojuregem/src/clj/clojuregem/rbrepl/rbir_dsl.clj"},
+ :o-tag long,
+ :class clojure.lang.Numbers,
+ :top-level true,
+ :form
+ (. clojure.lang.Numbers (add (. clojure.lang.Numbers (add 1 2)) (- 3 4))),
+ :tag long,
+ :validated? true,
+ :raw-forms ((+ 1 2 (- 3 4)))}
 
-  def test_nil
-    assert_parses(
-      s(:nil),
-      %q{nil},
-      %q{~~~ expression})
-  end
+
+  )
+
+
+
+;;;;
+
+(e/emit-hygienic-form (ana.jvm/analyze '1))
+
+
+(ana.jvm/analyze '() )
+
+
+(ana.jvm/analyze 'nil)
 
   def test_nil_expression
     assert_parses(
@@ -60,13 +140,6 @@
       %q{-42},
       %q{^ operator
         |~~~ expression})
-  end
-
-  def test_int___LINE__
-    assert_parses(
-      s(:int, 1),
-      %q{__LINE__},
-      %q{~~~~~~~~ expression})
   end
 
   def test_float
