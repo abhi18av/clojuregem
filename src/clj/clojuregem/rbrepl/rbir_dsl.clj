@@ -5,178 +5,192 @@
 (ana.jvm/analyze '1)
 
 (def expr-map
-  (ana.jvm/analyze '(+ 1 2 (- 3 4))))
+ (ana.jvm/analyze '(+ 1 2 (- 3 4))))
 
 ;;;;output
-;;the value stored in expr-map
-
-
-
-
-;;;;
-
-
-
-(keys expr-map)
-
-(:method expr-map)
-(:form expr-map)
-
-
-
-(get-in expr-map [:args ] "Nope")
-
-
-
-;(e/emit-form (ana.jvm/analyze '1))
-
-
-(def x1 (ana.jvm/analyze '1))
-
-(comment
-
-
-  {:op :const,
-   :env
-   {:context :ctx/expr,
-    :locals {},
-    :ns clojuregem.rbrepl.rbir-dsl,
-    :file
-    "/home/eklavya/ProjectEklavya/Mordor/Clojewel/clojuregem/src/clj/clojuregem/rbrepl/rbir_dsl.clj"},
-   :type :number,
-   :literal? true,
-   :val 1,
-   :form 1,
-   :top-level true,
-   :o-tag long,
-   :tag long}
-
-  )
-
-
-(def  x2 (ana.jvm/analyze '(+ 1)))
-
-(comment
-
-
-
-{:op :invoke,
- :form (+ 1),
- :env
- {:context :ctx/expr,
-  :locals {},
-  :ns clojuregem.rbrepl.rbir-dsl,
-  :column 28,
-  :line 36,
-  :file
-  "/home/eklavya/ProjectEklavya/Mordor/Clojewel/clojuregem/src/clj/clojuregem/rbrepl/rbir_dsl.clj"},
- :fn
- {:op :var,
-  :assignable? false,
-  :var #'clojure.core/+,
-  :meta
-  {:added "1.2",
-   :ns #namespace[clojure.core],
-   :name +,
-   :file "clojure/core.clj",
-   :inline-arities #function[clojure.core/>1?],
-   :column 1,
-   :line 976,
-   :arglists ([] [x] [x y] [x y & more]),
-   :doc
-   "Returns the sum of nums. (+) returns 0. Does not auto-promote\n  longs, will throw on overflow. See also: +'",
-   :inline #function[clojure.core/nary-inline/fn--5083]},
-  :env
-  {:context :ctx/expr,
-   :locals {},
-   :ns clojuregem.rbrepl.rbir-dsl,
-   :column 28,
-   :line 36,
-   :file
-   "/home/eklavya/ProjectEklavya/Mordor/Clojewel/clojuregem/src/clj/clojuregem/rbrepl/rbir_dsl.clj"},
-  :form +,
-  :o-tag java.lang.Object,
-  :arglists ([] [x] [x y] [x y & more])},
- :args
- [{:op :const,
-   :env
-   {:context :ctx/expr,
-    :locals {},
-    :ns clojuregem.rbrepl.rbir-dsl,
-    :column 28,
-    :line 36,
-    :file
-    "/home/eklavya/ProjectEklavya/Mordor/Clojewel/clojuregem/src/clj/clojuregem/rbrepl/rbir_dsl.clj"},
-   :type :number,
-   :literal? true,
-   :val 1,
-   :form 1,
-   :o-tag long,
-   :tag java.lang.Long}],
- :meta {:line 36, :column 28},
- :children [:fn :args],
- :top-level true,
- :o-tag java.lang.Object}
-
-)
-
-
-
-(def  x3 (ana.jvm/analyze '(+ 1 1)))
-
-(def  x4 (ana.jvm/analyze '(+ 1 1 1)))
-
-
-
-
-(def x (ana.jvm/analyze '1))
-
-(for [i ( keys x)]
-  (i x ))
-
-
-;; (for [i ( keys x)]
-;;   (do
-;;     (println i  " : " (i x))))
-
-
-
 
 (e/emit-hygienic-form (ana.jvm/analyze '1))
+
 
 (ana.jvm/analyze '() )
 
 
 (ana.jvm/analyze 'nil)
 
+  def test_nil_expression
+    assert_parses(
+      s(:begin),
+      %q{()},
+      %q{^ begin
+        | ^ end
+        |~~ expression})
 
+    assert_parses(
+      s(:kwbegin),
+      %q{begin end},
+      %q{~~~~~ begin
+        |      ~~~ end
+        |~~~~~~~~~ expression})
+  end
 
+  def test_true
+    assert_parses(
+      s(:true),
+      %q{true},
+      %q{~~~~ expression})
+  end
 
-      s(:begin) : %q{()}
+  def test_false
+    assert_parses(
+      s(:false),
+      %q{false},
+      %q{~~~~~ expression})
+  end
 
-      s(:kwbegin) : %q{begin end}
+  def test_int
+    assert_parses(
+      s(:int, 42),
+      %q{42},
+      %q{~~ expression})
 
-      s(:true) : %q{true}
+    assert_parses(
+      s(:int, -42),
+      %q{-42},
+      %q{^ operator
+        |~~~ expression})
+  end
 
-      s(:false) : %q{false}
+  def test_float
+    assert_parses(
+      s(:float, 1.33),
+      %q{1.33},
+      %q{~~~~ expression})
 
-      s(:int, 42) : %q{42}
+    assert_parses(
+      s(:float, -1.33),
+      %q{-1.33},
+      %q{^ operator
+        |~~~~~ expression})
+  end
 
-      s(:int, -42) : %q{-42}
+  def test_rational
+    assert_parses(
+      s(:rational, Rational(42)),
+      %q{42r},
+      %q{~~~ expression},
+      SINCE_2_1)
 
-      s(:float, 1.33) : %q{1.33}
+    assert_parses(
+      s(:rational, Rational(421, 10)),
+      %q{42.1r},
+      %q{~~~~~ expression},
+      SINCE_2_1)
+  end
 
-      s(:float, -1.33) : %q{-1.33}
+  def test_complex
+    assert_parses(
+      s(:complex, Complex(0, 42)),
+      %q{42i},
+      %q{~~~ expression},
+      SINCE_2_1)
 
-      s(:rational, Rational(42)):%q{42r}
+    assert_parses(
+      s(:complex, Complex(0, Rational(42))),
+      %q{42ri},
+      %q{~~~~ expression},
+      SINCE_2_1)
 
-      s(:rational, Rational(421, 10)): %q{42.1r}
+    assert_parses(
+      s(:complex, Complex(0, 42.1)),
+      %q{42.1i},
+      %q{~~~~~ expression},
+      SINCE_2_1)
 
-      s(:complex, Complex(0, 42)): %q{42i}
+    assert_parses(
+      s(:complex, Complex(0, Rational(421, 10))),
+      %q{42.1ri},
+      %q{~~~~~~ expression},
+      SINCE_2_1)
+  end
 
-      s(:complex, Complex(0, Rational(42))): %q{42ri}
+  # Strings
 
-      s(:complex, Complex(0, 42.1)): %q{42.1i}
+  def test_string_plain
+    assert_parses(
+      s(:str, 'foobar'),
+      %q{'foobar'},
+      %q{^ begin
+        |       ^ end
+        |~~~~~~~~ expression})
 
-      s(:complex, Complex(0, Rational(421, 10))): %q{42.1ri}
+    assert_parses(
+      s(:str, 'foobar'),
+      %q{%q(foobar)},
+      %q{^^^ begin
+        |         ^ end
+        |~~~~~~~~~~ expression})
+  end
+
+  def test_string_interp
+    assert_parses(
+      s(:dstr,
+        s(:str, 'foo'),
+        s(:begin, s(:lvar, :bar)),
+        s(:str, 'baz')),
+      %q{"foo#{bar}baz"},
+      %q{^ begin
+        |             ^ end
+        |    ^^ begin (begin)
+        |         ^ end (begin)
+        |    ~~~~~~ expression (begin)
+        |~~~~~~~~~~~~~~ expression})
+  end
+
+  def test_string_dvar
+    assert_parses(
+      s(:dstr,
+        s(:ivar, :@a),
+        s(:str, ' '),
+        s(:cvar, :@@a),
+        s(:str, ' '),
+        s(:gvar, :$a)),
+      %q{"#@a #@@a #$a"})
+  end
+
+  def test_string_concat
+    assert_parses(
+      s(:dstr,
+        s(:dstr,
+          s(:str, 'foo'),
+          s(:ivar, :@a)),
+        s(:str, 'bar')),
+      %q{"foo#@a" "bar"},
+      %q{^ begin (dstr)
+        |       ^ end (dstr)
+        |         ^ begin (str)
+        |             ^ end (str)
+        |~~~~~~~~~~~~~~ expression})
+  end
+
+  def test_string___FILE__
+    assert_parses(
+      s(:str, '(assert_parses)'),
+      %q{__FILE__},
+      %q{~~~~~~~~ expression})
+  end
+
+  def test_character
+    assert_parses(
+      s(:str, 'a'),
+      %q{?a},
+      %q{^ begin
+        |~~ expression},
+      SINCE_1_9)
+
+    assert_parses(
+      s(:int, 97),
+      %q{?a},
+      %q{~~ expression},
+      %w(1.8))
+  end
 
