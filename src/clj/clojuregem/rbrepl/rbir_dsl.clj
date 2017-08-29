@@ -1,4 +1,3 @@
-=======
 (ns clojuregem.rbrepl.rbir-dsl
     (:require [clojure.tools.analyzer.jvm :as ana.jvm]
               [clojure.tools.analyzer.passes.jvm.emit-form :as e]))
