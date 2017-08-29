@@ -14,23 +14,6 @@
 (ast-magic '(let [a 1 a a] a))
 
 
-
-
-
-(ast-magic '(defn- checked-aset
-   ([array idx val]
-    (try
-      (assert (or (array? array) (js/goog.isArrayLike array)))
-      (assert (number? idx))
-      (assert (not (neg? idx)))
-      (assert (< idx (alength array)))
-      (catch :default e
-        (maybe-warn e)))
-    (unchecked-set array idx val))
-   ([array idx idx2 & idxv]
-    (apply checked-aset (checked-aget array idx) idx2 idxv))))
-
-
 (ast-magic '(defn is_proto_
    [x]
    (identical? (.-prototype (.-constructor x)) x)))
@@ -51,7 +34,22 @@
                                          :local :let}}))
     e/emit-hygienic-form)
 
-(ast-magic '(+ 1 1 (- 1 2)))
+
+
+(ana.jvm/analyze '(+ 1 1 (- 1 2)))
+
+)(ast-magic '(+ 1 1 (- 1 2)))
+
 
 (ana.jvm/analyze add9)
+
+
+(ana.jvm/analyze-ns 'clojuregem.rbrepl.scratch-analyzer-clj-core)
+
+
+(defn example [x y]
+   {:pre [(pos? x)
+          (neg? y)]
+    :post [(< 5 %)]}
+   (+ x y))
 

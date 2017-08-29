@@ -1,9 +1,0 @@
-s(:class,
-  s(:const, nil, :Array), nil,
-  s(:begin,
-    s(:send, nil, :alias_method,
-      s(:sym, :append),
-      s(:sym, :<<)),
-    s(:send, nil, :alias_method,
-      s(:sym, :prepend),
-      s(:sym, :unshift))))

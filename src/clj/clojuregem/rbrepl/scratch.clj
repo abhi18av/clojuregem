@@ -50,3 +50,8 @@
 
 (jvm-analyze-and-print '(fn [x] (+ x 9)))
 
+
+
+(defn surround-with-parens [some-text]
+  (str "(" some-text ")"))
+
