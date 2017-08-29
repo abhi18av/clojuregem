@@ -44,9 +44,8 @@
 
 
 (def  x2 (ana.jvm/analyze '(+ 1)))
-(comment 
 
-
+(comment
 
 {:op :invoke,
  :form (+ 1),
@@ -105,7 +104,6 @@
  :children [:fn :args],
  :top-level true,
  :o-tag java.lang.Object}
-clojuregem.rbrepl.rbir-dsl> 
 
 )
 
@@ -113,7 +111,148 @@ clojuregem.rbrepl.rbir-dsl>
 
 (def  x3 (ana.jvm/analyze '(+ 1 1)))
 
+(comment
+
+{:args
+ [{:op :const,
+   :env
+   {:context :ctx/expr,
+    :locals {},
+    :ns clojuregem.rbrepl.rbir-dsl,
+    :column 28,
+    :line 113,
+    :file
+    "/Users/eklavya/Projects/ProjectEklavya/Mordor/Clojewel/clojuregem/src/clj/clojuregem/rbrepl/rbir_dsl.clj"},
+   :type :number,
+   :literal? true,
+   :val 1,
+   :form 1,
+   :o-tag long,
+   :tag long}
+  {:op :const,
+   :env
+   {:context :ctx/expr,
+    :locals {},
+    :ns clojuregem.rbrepl.rbir-dsl,
+    :column 28,
+    :line 113,
+    :file
+    "/Users/eklavya/Projects/ProjectEklavya/Mordor/Clojewel/clojuregem/src/clj/clojuregem/rbrepl/rbir_dsl.clj"},
+   :type :number,
+   :literal? true,
+   :val 1,
+   :form 1,
+   :o-tag long,
+   :tag long}],
+ :children [:args],
+ :method add,
+ :op :static-call,
+ :env
+ {:context :ctx/expr,
+  :locals {},
+  :ns clojuregem.rbrepl.rbir-dsl,
+  :column 28,
+  :line 113,
+  :file
+  "/Users/eklavya/Projects/ProjectEklavya/Mordor/Clojewel/clojuregem/src/clj/clojuregem/rbrepl/rbir_dsl.clj"},
+ :o-tag long,
+ :class clojure.lang.Numbers,
+ :top-level true,
+ :form (. clojure.lang.Numbers (add 1 1)),
+ :tag long,
+ :validated? true,
+ :raw-forms ((+ 1 1))}
+
+ )
+
 (def  x4 (ana.jvm/analyze '(+ 1 1 1)))
+
+(comment
+
+{:args
+ [{:args
+   [{:op :const,
+     :env
+     {:context :ctx/expr,
+      :locals {},
+      :ns clojuregem.rbrepl.rbir-dsl,
+      :file
+      "/private/var/folders/vt/9ywhthp94tz2b_23l97x9zcc0000gn/T/form-init1309742139128240872.clj",
+      :column 28,
+      :line 1},
+     :type :number,
+     :literal? true,
+     :val 1,
+     :form 1,
+     :o-tag long,
+     :tag long}
+    {:op :const,
+     :env
+     {:context :ctx/expr,
+      :locals {},
+      :ns clojuregem.rbrepl.rbir-dsl,
+      :file
+      "/private/var/folders/vt/9ywhthp94tz2b_23l97x9zcc0000gn/T/form-init1309742139128240872.clj",
+      :column 28,
+      :line 1},
+     :type :number,
+     :literal? true,
+     :val 1,
+     :form 1,
+     :o-tag long,
+     :tag long}],
+   :children [:args],
+   :method add,
+   :op :static-call,
+   :env
+   {:context :ctx/expr,
+    :locals {},
+    :ns clojuregem.rbrepl.rbir-dsl,
+    :column 28,
+    :line 1,
+    :file
+    "/private/var/folders/vt/9ywhthp94tz2b_23l97x9zcc0000gn/T/form-init1309742139128240872.clj"},
+   :o-tag long,
+   :class clojure.lang.Numbers,
+   :form (. clojure.lang.Numbers (add 1 1)),
+   :tag long,
+   :validated? true}
+  {:op :const,
+   :env
+   {:context :ctx/expr,
+    :locals {},
+    :ns clojuregem.rbrepl.rbir-dsl,
+    :column 28,
+    :line 1,
+    :file
+    "/private/var/folders/vt/9ywhthp94tz2b_23l97x9zcc0000gn/T/form-init1309742139128240872.clj"},
+   :type :number,
+   :literal? true,
+   :val 1,
+   :form 1,
+   :o-tag long,
+   :tag long}],
+ :children [:args],
+ :method add,
+ :op :static-call,
+ :env
+ {:context :ctx/expr,
+  :locals {},
+  :ns clojuregem.rbrepl.rbir-dsl,
+  :column 28,
+  :line 1,
+  :file
+  "/private/var/folders/vt/9ywhthp94tz2b_23l97x9zcc0000gn/T/form-init1309742139128240872.clj"},
+ :o-tag long,
+ :class clojure.lang.Numbers,
+ :top-level true,
+ :form
+ (. clojure.lang.Numbers (add (. clojure.lang.Numbers (add 1 1)) 1)),
+ :tag long,
+ :validated? true,
+ :raw-forms ((+ 1 1 1))}
+
+  )
 
 
 
