@@ -55,7 +55,8 @@
 
 
 (def  x2 (ana.jvm/analyze '(+ 1)))
-(comment 
+
+(comment
 
 
 
@@ -116,7 +117,6 @@
  :children [:fn :args],
  :top-level true,
  :o-tag java.lang.Object}
-clojuregem.rbrepl.rbir-dsl> 
 
 )
 
