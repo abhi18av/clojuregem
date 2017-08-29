@@ -41,6 +41,13 @@
 
 
 (rbrepl/ruby-create-rb-expr-from-rbir-with-driver-file
+ "s(:float, 1.33) ")
+
+
+
+
+
+(rbrepl/ruby-create-rb-expr-from-rbir-with-driver-file
  "s(:if,
   s(:send,
     s(:ivar, :@ready_state), :>,

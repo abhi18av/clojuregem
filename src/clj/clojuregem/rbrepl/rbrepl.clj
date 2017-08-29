@@ -29,7 +29,7 @@
   (let [file (str base-dir "scratch.rb")]
     (utils/shell-show-file-content file)))
 
-;(shell-show-scratch)
+;(shell-show-scratch)  
 
 (defn shell-show-scratch-rbir
   "Show the \"RBIR\" contents of scratch.rbir file"
@@ -37,7 +37,7 @@
   (let [file (str base-dir "scratch.rbir")]
     (utils/shell-show-file-content file)))
 
-;(shell-show-scratch-rbir)
+;(shell-show-scratch-rbir) 
 
 (defn ruby-eval-scratch
   "This function evaluates the scratch file using << ruby scratch.rb >>"
@@ -46,7 +46,7 @@
     (utils/ruby-eval-file scratch-rb)))
 
 
-;(ruby-eval-scratch)
+;(ruby-eval-scratch)  
 
 (defn ruby-eval-scratch-rbir
   "This function evaluates the scratch file using << ruby scratch.rb >>"

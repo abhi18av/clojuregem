@@ -9,14 +9,14 @@
   (with-programs [ruby]
     (ruby "--version"))) ;{:verbose true})))
 
-;(ruby-version)
+(ruby-version)
 
 (defn ruby-eval-cli [ruby-expression]
   (with-programs [ruby]
     (ruby "-e" ruby-expression)))
 
-;(with-programs [ruby]
-;  (ruby "-e" "p 1 + 1 + 1")); {:verbose true}))
+(with-programs [ruby]
+  (ruby "-e" "p 1 + 1 + 1")); {:verbose true}))
 
 
 
@@ -25,8 +25,8 @@
     (ruby ruby-file-name ))); :verbose true})))
 
 
-;(with-programs [ruby]
-;  (ruby "./src/clj/clojuregem/rbrepl/scratch.rb" ));{:verbose true}))
+(with-programs [ruby]
+  (ruby "./src/clj/clojuregem/rbrepl/scratch.rb" ));{:verbose true}))
 
 
 
