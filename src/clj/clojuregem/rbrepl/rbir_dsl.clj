@@ -176,7 +176,7 @@
 ;(def  x3 (ana.jvm/analyze '(+ 1 1)))
 
 (comment
-
+;;;NOTE: < + > and < add > are defined differently
 {:args
  [{:op :const,
    :env
