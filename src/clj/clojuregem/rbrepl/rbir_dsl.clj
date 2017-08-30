@@ -44,9 +44,17 @@
 
 )
 
+;; Using set-theoretic functions for analysis
+
+(clojure.set/difference (set kx1 ) (set kx2))
+
+(clojure.set/difference (set kx1 ) (set kx2) (set kx3) (set kx4) (set kx5))
 
 
-;(def x1 (ana.jvm/analyze '1))
+(def set-of-keys [(set kx1 ) (set kx2) (set kx3) (set kx4) (set kx5)])
+
+
+ ;(def x1 (ana.jvm/analyze '1))
 
 (comment
 
