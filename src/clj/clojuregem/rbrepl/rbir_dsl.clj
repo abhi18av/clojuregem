@@ -55,7 +55,6 @@
 
 (clojure.set/difference (set kx1 ) (set kx2) (set kx3) (set kx4) (set kx5))
 
-
 (def set-of-keys [(set kx1 ) (set kx2) (set kx3) (set kx4) (set kx5)])
 
 
@@ -73,6 +72,16 @@
 
 ); end of comment
 
+
+(apply :env [x1 x2])
+
+(map :op [x1 x2 x3 x4 x5 x6])
+
+(:const :invoke :static-call :static-call :static-call :static-call)
+
+
+
+;;;;;;;;;; Actual outputs of the analysis of x-forms
 
 ;(def x1 (ana.jvm/analyze '1))
 
