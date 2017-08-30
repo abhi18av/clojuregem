@@ -54,7 +54,21 @@
 (def set-of-keys [(set kx1 ) (set kx2) (set kx3) (set kx4) (set kx5)])
 
 
- ;(def x1 (ana.jvm/analyze '1))
+(map sort set-of-keys)
+
+;; output of previous command
+(comment
+
+((:env :form :literal? :o-tag :op :tag :top-level :type :val)
+ (:args :children :env :fn :form :meta :o-tag :op :top-level)
+ (:args :children :class :env :form :method :o-tag :op :raw-forms :tag :top-level :validated?)
+ (:args :children :class :env :form :method :o-tag :op :raw-forms :tag :top-level :validated?)
+ (:args :children :class :env :form :method :o-tag :op :raw-forms :tag :top-level :validated?))
+
+)
+
+
+;(def x1 (ana.jvm/analyze '1))
 
 (comment
 
