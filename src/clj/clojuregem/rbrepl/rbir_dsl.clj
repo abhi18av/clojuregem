@@ -20,7 +20,33 @@
 
 (e/emit-hygienic-form (ana.jvm/analyze '1))
 
-(def x1 (ana.jvm/analyze '1))
+
+(do
+
+(def  x1 (ana.jvm/analyze '1))
+(def  x2 (ana.jvm/analyze '(+ 1)))
+(def  x3 (ana.jvm/analyze '(+ 1 1)))
+(def  x4 (ana.jvm/analyze '(+ 1 1 1)))
+(def  x5 (ana.jvm/analyze '(+ 1 1 1 (- 1))))
+
+)
+
+
+(do
+
+
+(def kx1 (keys x1))
+(def kx2 (keys x2))
+(def kx3 (keys x3))
+(def kx4 (keys x4))
+(def kx5 (keys x5))
+
+
+)
+
+
+
+;(def x1 (ana.jvm/analyze '1))
 
 (comment
 
@@ -43,7 +69,8 @@
   )
 
 
-(def  x2 (ana.jvm/analyze '(+ 1)))
+
+;(def  x2 (ana.jvm/analyze '(+ 1)))
 
 (comment
 
@@ -109,7 +136,7 @@
 
 
 
-(def  x3 (ana.jvm/analyze '(+ 1 1)))
+;(def  x3 (ana.jvm/analyze '(+ 1 1)))
 
 (comment
 
@@ -165,8 +192,8 @@
 
  )
 
-(def  x4 (ana.jvm/analyze '(+ 1 1 1)))
 
+;(def  x4 (ana.jvm/analyze '(+ 1 1 1)))
 (comment
 
 {:args
@@ -255,7 +282,7 @@
 )
 
 
-(def  x5 (ana.jvm/analyze '(+ 1 1 1 (- 1))))
+;(def  x5 (ana.jvm/analyze '(+ 1 1 1 (- 1))))
 
 (comment
 
@@ -366,6 +393,13 @@
 
 (for [i ( keys x)]
   (i x ))
+
+
+(for [i '( x1 x2 )]
+  (keys i ))
+
+
+
 
 
 ;; (for [i ( keys x)]
