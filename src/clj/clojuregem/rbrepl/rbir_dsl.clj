@@ -7,7 +7,14 @@
 (def expr-map
  (ana.jvm/analyze '(+ 1 2 (- 3 4))))
 
+
+
 ;;;;output
+
+(:args :children :method :op :env :o-tag :class :top-level :form :tag :validated? :raw-forms)
+
+;;;;
+
 
 (e/emit-hygienic-form (ana.jvm/analyze '1))
 
@@ -28,20 +35,18 @@
 (def  x3 (ana.jvm/analyze '(+ 1 1)))
 (def  x4 (ana.jvm/analyze '(+ 1 1 1)))
 (def  x5 (ana.jvm/analyze '(+ 1 1 1 (- 1))))
-
+(def  x6 (ana.jvm/analyze '(+ 1 1 1 (- 1 1))))
 )
 
 
 (do
-
 
 (def kx1 (keys x1))
 (def kx2 (keys x2))
 (def kx3 (keys x3))
 (def kx4 (keys x4))
 (def kx5 (keys x5))
-
-
+(def kx6 (keys x6))
 )
 
 ;; Using set-theoretic functions for analysis
@@ -63,9 +68,10 @@
  (:args :children :env :fn :form :meta :o-tag :op :top-level)
  (:args :children :class :env :form :method :o-tag :op :raw-forms :tag :top-level :validated?)
  (:args :children :class :env :form :method :o-tag :op :raw-forms :tag :top-level :validated?)
+ (:args :children :class :env :form :method :o-tag :op :raw-forms :tag :top-level :validated?)
  (:args :children :class :env :form :method :o-tag :op :raw-forms :tag :top-level :validated?))
 
-)
+); end of comment
 
 
 ;(def x1 (ana.jvm/analyze '1))
@@ -411,7 +417,6 @@
 
 )
 
-(def x (ana.jvm/analyze '1))
 
 (for [i ( keys x)]
   (i x ))
@@ -431,10 +436,9 @@
 
 
 
-(e/emit-hygienic-form (ana.jvm/analyze '1))
 
 
-
+;; ruby number literals
 
       s(:begin) : %q{()}
 
@@ -463,5 +467,3 @@
       s(:complex, Complex(0, 42.1)): %q{42.1i}
 
       s(:complex, Complex(0, Rational(421, 10))): %q{42.1ri}
-
-
