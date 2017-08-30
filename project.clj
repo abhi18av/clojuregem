@@ -12,6 +12,9 @@
 
                             [instaparse "1.4.7"]
 
+                            ;; This is for traversing the nested clojure data structure
+                            [com.rpl/specter "1.0.3"]
+
                             ;;;;
 
 
