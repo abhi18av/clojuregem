@@ -30,43 +30,38 @@
 
 ;; (e/emit-hygienic-form (ana.jvm/analyze '1))
 
+(comment
+
+  ;; DONE: I need to learn how to capture the output value into a list or a similar sequence
+
+
+); end of comment
 
 
 
 
-(defn alpha-nums [word num-range]
+;{7 :a, 1 :a, 4 :a, 6 :a, 3 :a, 2 :a, 9 :a, 5 :a, 10 :a, 8 :a}
+(defn -alpha-nums [word num-range]
   (zipmap
    (range 1 (+ 1 num-range)  1)
    (repeat num-range (keyword word))))
 
 
+; (join-key-val [:b 2])
+(defn -join-key-val [pair]
+  (str  (first (reverse pair))
+        (second  (reverse pair))))
+
+; [[1 :a] [2 :a] [3 :a] [4 :a] [5 :a] [6 :a] [7 :a] [8 :a] [9 :a] [10 :a]]
+(def -alpha-nums-seq
+  (into [] (sort(alpha-nums "a" 10))))
+
+; (":a1" ":a2" ":a3" ":a4" ":a5" ":a6" ":a7" ":a8" ":a9" ":a10")
+(map -join-key-val alpha-nums-seq)
 
 
-(comment
+;; TODO: (gen-pairs n alphabet )
 
-(alpha-nums "a" 10)
-
-(repeat 10 (keyword "a"))
-
-(range 1 (+ 1 10)  1)
-
-
-;; TODO: I need to learn how to capture the output value into a list or a similar sequence
-
-
-
-(defn join-key-val [pair]
- (str  (first (first (reverse pair)))
-                (second  (first (reverse pair))))
-)
-
-(doseq [pair (alpha-nums "a" 10)]
-
-(into [] pair)
-)
-
-
-); end of comment
 
 
 (def x {
