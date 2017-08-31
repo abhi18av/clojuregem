@@ -3,105 +3,113 @@
               [clojure.tools.analyzer.passes.jvm.emit-form :as e])
     (:use com.rpl.specter))
 
-(ana.jvm/analyze '1)
 
-(def expr-map
- (ana.jvm/analyze '(+ 1 2 (- 3 4))))
-
-
-
-;;;;output
-
-(:args :children :method :op :env :o-tag :class :top-level :form :tag :validated? :raw-forms)
-
-;;;;
-
-
-(e/emit-hygienic-form (ana.jvm/analyze '1))
-
-
-(get-in expr-map [:args ] "Nope")
+;; (def expr-map
+;;  (ana.jvm/analyze '(+ 1 2 (- 3 4))))
 
 
 
-;(e/emit-form (ana.jvm/analyze '1))
-
-(e/emit-hygienic-form (ana.jvm/analyze '1))
-
-
+;; ;;;;output
+;; (comment
+;;   (:args :children :method :op :env :o-tag :class :top-level :form :tag :validated? :raw-forms)
 
 
+;;   )
 
+;; ;;;;
+
+
+;; (e/emit-hygienic-form (ana.jvm/analyze '1))
+
+
+;; (get-in expr-map [:args ] "Nope")
+
+
+
+;; ;(e/emit-form (ana.jvm/analyze '1))
+
+;; (e/emit-hygienic-form (ana.jvm/analyze '1))
+
+
+
+
+
+(defn alph-nums [word num-range]
+  (zipmap
+ (range num-range)
+  (repeat num-range word))
+)
 
 
 (def x {
 :x1 (ana.jvm/analyze '1)
 :x2 (ana.jvm/analyze '(+ 1))
 :x3 (ana.jvm/analyze '(+ 1 1))
-:x4 (ana.jvm/analyze '(+ 1 1 1))
-:x5 (ana.jvm/analyze '(+ 1 1 1 (- 1)))
-:x6 (ana.jvm/analyze '(+ 1 1 1 (- 1 1)))})
 
 
 
 
 
-(do
 
-(def  x1 (ana.jvm/analyze '1))
-(def  x2 (ana.jvm/analyze '(+ 1)))
-(def  x3 (ana.jvm/analyze '(+ 1 1)))
-(def  x4 (ana.jvm/analyze '(+ 1 1 1)))
-(def  x5 (ana.jvm/analyze '(+ 1 1 1 (- 1))))
-(def  x6 (ana.jvm/analyze '(+ 1 1 1 (- 1 1))))
-)
+;; (do
 
-
-(do
-
-(def kx1 (keys x1))
-(def kx2 (keys x2))
-(def kx3 (keys x3))
-(def kx4 (keys x4))
-(def kx5 (keys x5))
-(def kx6 (keys x6))
-)
-
-;; Using set-theoretic functions for analysis
-
-(clojure.set/difference (set kx1 ) (set kx2))
-
-(clojure.set/difference (set kx1 ) (set kx2) (set kx3) (set kx4) (set kx5))
-
-(def set-of-keys [(set kx1 ) (set kx2) (set kx3) (set kx4) (set kx5)])
+;; (def  x1 (ana.jvm/analyze '1))
+;; (def  x2 (ana.jvm/analyze '(+ 1)))
+;; (def  x3 (ana.jvm/analyze '(+ 1 1)))
+;; (def  x4 (ana.jvm/analyze '(+ 1 1 1)))
+;; (def  x5 (ana.jvm/analyze '(+ 1 1 1 (- 1))))
+;; (def  x6 (ana.jvm/analyze '(+ 1 1 1 (- 1 1))))
+;; )
 
 
-(map sort set-of-keys)
-
-;; output of previous command
-(comment
-
-((:env :form :literal? :o-tag :op :tag :top-level :type :val)
- (:args :children :env :fn :form :meta :o-tag :op :top-level)
- (:args :children :class :env :form :method :o-tag :op :raw-forms :tag :top-level :validated?)
- (:args :children :class :env :form :method :o-tag :op :raw-forms :tag :top-level :validated?)
- (:args :children :class :env :form :method :o-tag :op :raw-forms :tag :top-level :validated?)
- (:args :children :class :env :form :method :o-tag :op :raw-forms :tag :top-level :validated?))
-
-); end of comment
 
 
-(apply :env [x1 x2])
 
-(map :op [x1 x2 x3 x4 x5 x6])
-(:const :invoke :static-call :static-call :static-call :static-call)
+;; (do
+
+;; (def kx1 (keys x1))
+;; (def kx2 (keys x2))
+;; (def kx3 (keys x3))
+;; (def kx4 (keys x4))
+;; (def kx5 (keys x5))
+;; (def kx6 (keys x6))
+;; )
+
+;; ;; Using set-theoretic functions for analysis
+
+;; (clojure.set/difference (set kx1 ) (set kx2))
+
+;; (clojure.set/difference (set kx1 ) (set kx2) (set kx3) (set kx4) (set kx5))
+
+;; (def set-of-keys [(set kx1 ) (set kx2) (set kx3) (set kx4) (set kx5)])
 
 
-(map :args [x1 x2 x3])
+;; (map sort set-of-keys)
 
-;;;;;;;;;; Actual outputs of the analysis of x-forms
+;; ;; output of previous command
+;; (comment
 
-;(def x1 (ana.jvm/analyze '1))
+;; ((:env :form :literal? :o-tag :op :tag :top-level :type :val)
+;;  (:args :children :env :fn :form :meta :o-tag :op :top-level)
+;;  (:args :children :class :env :form :method :o-tag :op :raw-forms :tag :top-level :validated?)
+;;  (:args :children :class :env :form :method :o-tag :op :raw-forms :tag :top-level :validated?)
+;;  (:args :children :class :env :form :method :o-tag :op :raw-forms :tag :top-level :validated?)
+;;  (:args :children :class :env :form :method :o-tag :op :raw-forms :tag :top-level :validated?))
+
+;; ); end of comment
+
+
+;; (apply :env [x1 x2])
+
+;; (map :op [x1 x2 x3 x4 x5 x6])
+;; (:const :invoke :static-call :static-call :static-call :static-call)
+
+
+;; (map :args [x1 x2 x3])
+
+;; ;;;;;;;;;; Actual outputs of the analysis of x-forms
+
+;; ;(def x1 (ana.jvm/analyze '1))
 
 (comment
 
@@ -445,12 +453,12 @@
 )
 
 
-(for [i ( keys x)]
-  (i x ))
+;; (for [i ( keys x)]
+;;   (i x ))
 
 
-(for [i '( x1 x2 )]
-  (keys i ))
+;; (for [i '( x1 x2 )]
+;;   (keys i ))
 
 
 
@@ -467,30 +475,30 @@
 
 ;; ruby number literals
 
-      s(:begin) : %q{()}
+      ;; s(:begin) : %q{()}
 
-      s(:kwbegin) : %q{begin end}
+      ;; s(:kwbegin) : %q{begin end}
 
-      s(:true) : %q{true}
+      ;; s(:true) : %q{true}
 
-      s(:false) : %q{false}
+      ;; s(:false) : %q{false}
 
-      s(:int, 42) : %q{42}
+      ;; s(:int, 42) : %q{42}
 
-      s(:int, -42) : %q{-42}
+      ;; s(:int, -42) : %q{-42}
 
-      s(:float, 1.33) : %q{1.33}
+      ;; s(:float, 1.33) : %q{1.33}
 
-      s(:float, -1.33) : %q{-1.33}
+      ;; s(:float, -1.33) : %q{-1.33}
 
-      s(:rational, Rational(42)):%q{42r}
+      ;; s(:rational, Rational(42)):%q{42r}
 
-      s(:rational, Rational(421, 10)): %q{42.1r}
+      ;; s(:rational, Rational(421, 10)): %q{42.1r}
 
-      s(:complex, Complex(0, 42)): %q{42i}
+      ;; s(:complex, Complex(0, 42)): %q{42i}
 
-      s(:complex, Complex(0, Rational(42))): %q{42ri}
+      ;; s(:complex, Complex(0, Rational(42))): %q{42ri}
 
-      s(:complex, Complex(0, 42.1)): %q{42.1i}
+      ;; s(:complex, Complex(0, 42.1)): %q{42.1i}
 
-      s(:complex, Complex(0, Rational(421, 10))): %q{42.1ri}
+      ;; s(:complex, Complex(0, Rational(421, 10))): %q{42.1ri}
