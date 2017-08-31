@@ -56,8 +56,12 @@
 
 (doseq [pair (alpha-nums "a" 10)]
   (do
-( (str (reverse pair))
+ (prn (reverse pair))
     )
+  )
+
+
+
 )
 
 
