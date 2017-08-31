@@ -94,10 +94,10 @@
 (apply :env [x1 x2])
 
 (map :op [x1 x2 x3 x4 x5 x6])
-
 (:const :invoke :static-call :static-call :static-call :static-call)
 
 
+(map :args [x1 x2 x3])
 
 ;;;;;;;;;; Actual outputs of the analysis of x-forms
 
