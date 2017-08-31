@@ -1,6 +1,7 @@
 (ns clojuregem.rbrepl.rbir-dsl
     (:require [clojure.tools.analyzer.jvm :as ana.jvm]
-              [clojure.tools.analyzer.passes.jvm.emit-form :as e]))
+              [clojure.tools.analyzer.passes.jvm.emit-form :as e])
+    (:use com.rpl.specter))
 
 (ana.jvm/analyze '1)
 
@@ -26,6 +27,23 @@
 ;(e/emit-form (ana.jvm/analyze '1))
 
 (e/emit-hygienic-form (ana.jvm/analyze '1))
+
+
+
+
+
+
+
+(def x {
+:x1 (ana.jvm/analyze '1)
+:x2 (ana.jvm/analyze '(+ 1))
+:x3 (ana.jvm/analyze '(+ 1 1))
+:x4 (ana.jvm/analyze '(+ 1 1 1))
+:x5 (ana.jvm/analyze '(+ 1 1 1 (- 1)))
+:x6 (ana.jvm/analyze '(+ 1 1 1 (- 1 1)))})
+
+
+
 
 
 (do
