@@ -56,16 +56,14 @@
 
 
 (defn join-key-val [pair]
-(keyword (str  (key (reverse pair))
-               (val (reverse pair))))
+ (str  (first (first (reverse pair)))
+                (second  (first (reverse pair))))
 )
 
 (doseq [pair (alpha-nums "a" 10)]
-  (do
-    (keyword (str  (first (reverse pair))
-               (second (reverse pair))))
-    )
-  )
+
+(into [] pair)
+)
 
 
 ); end of comment
