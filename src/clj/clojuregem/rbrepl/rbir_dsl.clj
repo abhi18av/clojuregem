@@ -14,7 +14,7 @@
 ;;   (:args :children :method :op :env :o-tag :class :top-level :form :tag :validated? :raw-forms)
 
 
-;;   )
+;; )
 
 ;; ;;;;
 
@@ -34,10 +34,28 @@
 
 
 
-(defn alph-nums [word num-range]
+(defn alpha-nums [word num-range]
   (zipmap
- (range num-range)
-  (repeat num-range word))
+   (range 1 (+ 1 num-range)  1)
+   (repeat num-range (keyword word))))
+
+
+
+
+(comment
+
+(alpha-nums "a" 10)
+
+(repeat 10 (keyword "a"))
+
+(range 1 (+ 1 10)  1)
+
+(doseq [pair (alpha-nums "a" 10)]
+
+
+)
+
+
 )
 
 
@@ -45,9 +63,21 @@
 :x1 (ana.jvm/analyze '1)
 :x2 (ana.jvm/analyze '(+ 1))
 :x3 (ana.jvm/analyze '(+ 1 1))
+:x4 (ana.jvm/analyze '(+ 1 1 1))
+:x5 (ana.jvm/analyze '(+ 1 1 1 (- 1)))
+:x6 (ana.jvm/analyze '(+ 1 1 1 (- 1 1)))})
 
 
 
+
+
+(def kx {
+:kx1 (keys (:x1 x))
+:kx2 (keys (:x2 x))
+:kx3 (keys (:x3 x))
+:kx4 (keys (:x4 x))
+:kx5 (keys (:x5 x))
+:kx6 (keys (:x6 x))})
 
 
 
