@@ -50,12 +50,14 @@
 
 (range 1 (+ 1 10)  1)
 
+
+;; TODO: I need to learn how to capture the output value into a list or a similar sequence
+
+
 (doseq [pair (alpha-nums "a" 10)]
-
-
-)
-
-
+  (do
+( (str (reverse pair))
+    )
 )
 
 
