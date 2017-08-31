@@ -6,24 +6,33 @@
 
 ;; LISTS
 
-(def l-1 '(1 2 3 4))
+(def l-1 '(1 2 3))
 
 
-(doseq [1 2 3] (print i))
+(doseq [l l-1]
+  (prn (inc l)))
 
 
-
-
-
-
+(doseq [[x y] (map list [1 2 3] [1 2 3])]
+  (prn (* x y)))
 
 ;; VECTORS
+
+(def v-1 [1 2 3])
+
 
 
 ;; HASH-MAP
 
+(def m-1 {:1 1 :2 2 :3 3})
+
 
 ;; SET
+
+
+(def s-1 #{1 2 3 })
+
+
 
 ;;;;;;;;;;;;
 ;; SPEC
@@ -53,8 +62,7 @@
 
 
 (gen/sample (spec/gen string?))
-;;=> ("" "" "" "" "8" "W" "" "G74SmCm" "K9sL9" "82vC")
+
 (gen/sample (spec/gen #{:club :diamond :heart :spade}))
-;;=> (:heart :diamond :heart :heart :heart :diamond :spade :spade :spade :club)
 
 (gen/sample (spec/gen (spec/cat :k keyword? :ns (spec/+ number?))))
