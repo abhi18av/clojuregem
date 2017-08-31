@@ -1,0 +1,168 @@
+/**
+ * Default Theme, v2.
+ *
+ */
+/* Slight reset to make the preview have ample padding. */
+.cse .gsc-control-cse,
+.gsc-control-cse {
+  padding: 1em;
+  width: auto;
+}
+
+.cse .gsc-control-cse,
+.gsc-control-cse {
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+.cse .gsc-control-cse:after,
+.gsc-control-cse:after {
+  content:".";
+  display:block;
+  height:0;
+  clear:both;
+  visibility:hidden;
+}
+
+.cse .gsc-control-wrapper-cse,
+.gsc-control-wrapper-cse {
+  width: 100%;
+}
+
+.gsc-result-info {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 8px;
+  padding-bottom: 10px;
+}
+
+.gsc-wrapper.gsc-thinWrapper {
+  border-right: 1px solid #e9e9e9;
+}
+
+.cse .gsc-branding,
+.gsc-branding {
+  display: none;
+}
+
+td.gsc-branding-text, td.gcsc-branding-text {
+  color: #666;
+}
+
+.gcsc-branding {
+  padding-top: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+/* Inner wrapper for a result */
+.gsc-webResult.gsc-result {
+  padding: .25em;
+  border: 1px solid #fff;
+  margin-bottom: 0;
+}
+/* Inner wrapper for a result */
+.cse .gsc-webResult.gsc-result {
+  border: 1px solid #fff;
+  margin-bottom: 0;
+}
+/* Wrapper for a result. */
+.gsc-webResult .gsc-result {
+  padding: 10px 0 10px 0;
+}
+/* Result hover event styling */
+.cse .gsc-webResult.gsc-result:hover,
+.gsc-webResult.gsc-result:hover,
+.gsc-webResult.gsc-result.gsc-promotion:hover,
+.gsc-results .gsc-imageResult-classic:hover,
+.gsc-results .gsc-imageResult-column:hover {
+  border: 1px solid #fff;
+}
+
+.gsc-table-result,
+.gsc-thumbnail-inside,
+.gsc-url-top {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.gsc-thumbnail-inside {
+  display: block;
+}
+
+.gsc-result .gs-title {
+  height: 1.2em;
+}
+
+.gs-result .gs-title,
+.gs-result .gs-title * {
+  color: #15C;
+}
+
+.gs-webResult .gs-title
+.gs-title.gsc-usr-group-heading {
+  color: #0000cc;
+  cursor: pointer;
+}
+
+.gs-webResult .gs-title
+.gs-title.gsc-usr-group-all-results {
+  font-size: 11px;
+  line-height: 10px;
+}
+.gs-webResult .gs-title
+.gs-title.gsc-usr-group-all-results
+b {
+  font-size: 14px;
+  font-weight: 600;
+}
+.gs-webResult .gs-title
+.gs-title.gsc-usr-group-heading
+b {
+  color: #0000cc;
+}
+
+.gsc-url-top {
+  display: block;
+}
+
+.gs-webResult div.gs-visibleUrl-long,
+.gs-promotion div.gs-visibleUrl-long {
+  display: block;
+}
+
+.gs-result a.gs-visibleUrl,
+.gs-result .gs-visibleUrl {
+  color: #093;
+  text-decoration: none;
+  padding-bottom: 2px;
+}
+
+.gsc-preview-reviews,
+.gsc-control-cse .gs-snippet,
+.gsc-control-cse .gs-promotion em,
+.gsc-control-cse .gs-snippet,
+.gsc-control-cse .gs-promotion em {
+  color: #333;
+}
+
+.gs-snippet {
+  margin-top: 1px;
+}
+
+.gsc-results .gsc-cursor-box {
+  margin: 10px;
+}
+
+.gsc-results .gsc-cursor-box .gsc-cursor-page {
+  text-decoration: none;
+}
+
+.gsc-results .gsc-cursor-box .gsc-cursor-page:hover {
+  text-decoration: underline;
+}
+
+.gsc-results .gsc-cursor-box .gsc-cursor-current-page {
+  text-decoration: none;
+  color: #DD4B39;
+}
