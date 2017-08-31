@@ -54,15 +54,21 @@
 ;; TODO: I need to learn how to capture the output value into a list or a similar sequence
 
 
+
+(defn join-key-val [pair]
+(keyword (str  (key (reverse pair))
+               (val (reverse pair))))
+)
+
 (doseq [pair (alpha-nums "a" 10)]
   (do
- (prn (reverse pair))
+    (keyword (str  (first (reverse pair))
+               (second (reverse pair))))
     )
   )
 
 
-
-)
+); end of comment
 
 
 (def x {
