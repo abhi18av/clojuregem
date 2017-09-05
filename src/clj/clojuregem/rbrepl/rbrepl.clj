@@ -2,10 +2,7 @@
   (:require [clojuregem.rbrepl.utils :as utils])
   (:gen-class))
 
-
 (def base-dir "./src/clj/clojuregem/rbrepl/")
-
-
 
 ;;;; SCRATCH RELATED FUNCTIONS
 
@@ -45,7 +42,6 @@
   (let [scratch-rb (str base-dir "scratch.rb")]
     (utils/ruby-eval-file scratch-rb)))
 
-
 ;(ruby-eval-scratch)
 
 (defn ruby-eval-scratch-rbir
@@ -53,7 +49,6 @@
   []
   (let [scratch-rbir (str base-dir "scratch.rbir")]
     (utils/ruby-eval-file scratch-rbir)))
-
 
 ;(ruby-eval-scratch-rbir)
 
@@ -66,8 +61,10 @@
   (let [driver-file (str base-dir "rb_expr_from_s_expr.rb")]
     (utils/ruby-eval-expr-with-driver driver-file ruby-expression)))
 
-
-
+(ruby-create-rb-expr-from-rbir-with-driver-file 
+ "s(:send,
+   s(:int, 1), :+,
+   s(:int, 1))")
 
 (defn ruby-eval-expr-with-driver-file
   "This function takes in the ruby RBIR form and uses a driver script to print out the RB expression "
@@ -76,7 +73,6 @@
     (utils/ruby-eval-expr-with-driver driver-file ruby-expression)))
 
 ;(ruby-eval-expr-with-driver-file "puts 1 + 1")
-
 
 
 (defn ruby-create-rbir-expr-with-driver-file

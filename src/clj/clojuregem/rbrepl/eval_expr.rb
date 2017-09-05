@@ -1,11 +1,8 @@
-function eval_expr(expr::String)
+require "parser"
+require "unparser"
 
-parsed_expr = parse(expr)
-return eval(eval(parsed_expr))
-end
+expr = ARGV[0]
 
+eval(expr)
 
-
-expr = ARGS[1]
-eval_expr(expr) |> show
 
