@@ -29,7 +29,7 @@
   (let [file (str base-dir "scratch.rb")]
     (utils/shell-show-file-content file)))
 
-;(shell-show-scratch)  
+;(shell-show-scratch)
 
 (defn shell-show-scratch-rbir
   "Show the \"RBIR\" contents of scratch.rbir file"
@@ -37,7 +37,7 @@
   (let [file (str base-dir "scratch.rbir")]
     (utils/shell-show-file-content file)))
 
-;(shell-show-scratch-rbir) 
+;(shell-show-scratch-rbir)
 
 (defn ruby-eval-scratch
   "This function evaluates the scratch file using << ruby scratch.rb >>"
@@ -46,7 +46,7 @@
     (utils/ruby-eval-file scratch-rb)))
 
 
-;(ruby-eval-scratch)  
+;(ruby-eval-scratch)
 
 (defn ruby-eval-scratch-rbir
   "This function evaluates the scratch file using << ruby scratch.rb >>"
@@ -66,11 +66,18 @@
   (let [driver-file (str base-dir "rb_expr_from_s_expr.rb")]
     (utils/ruby-eval-expr-with-driver driver-file ruby-expression)))
 
+
+
+
 (defn ruby-eval-expr-with-driver-file
   "This function takes in the ruby RBIR form and uses a driver script to print out the RB expression "
   [ruby-expression]
   (let [driver-file (str base-dir "eval_expr.rb")]
     (utils/ruby-eval-expr-with-driver driver-file ruby-expression)))
+
+;(ruby-eval-expr-with-driver-file "puts 1 + 1")
+
+
 
 (defn ruby-create-rbir-expr-with-driver-file
   "Working on the creation of the RBIR using a driver file"
