@@ -61,10 +61,16 @@
   (let [driver-file (str base-dir "rb_expr_from_s_expr.rb")]
     (utils/ruby-eval-expr-with-driver driver-file ruby-expression)))
 
-(ruby-create-rb-expr-from-rbir-with-driver-file 
+(ruby-create-rb-expr-from-rbir-with-driver-file
  "s(:send,
    s(:int, 1), :+,
    s(:int, 1))")
+
+
+(ruby-create-rb-expr-from-rbir-with-driver-file
+"s(:lvasgn, :text1,
+           s(:str, /"def add9(x) x + 9 end/" ))")
+ 
 
 (defn ruby-eval-expr-with-driver-file
   "This function takes in the ruby RBIR form and uses a driver script to print out the RB expression "
