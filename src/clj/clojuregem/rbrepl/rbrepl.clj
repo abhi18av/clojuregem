@@ -12,6 +12,9 @@
   (let [scratch-rb (str base-dir "scratch.rb")]
     (utils/shell-save-to-file scratch-rb ruby-expression)))
 
+
+;(shell-save-to-scratch "puts 1 + 1")
+
 (defn ruby-create-scratch-rbir
   "Convert the scratch file to it's RBIR version and show"
   []
@@ -69,8 +72,8 @@
 
 (ruby-create-rb-expr-from-rbir-with-driver-file
 "s(:lvasgn, :text1,
-           s(:str, /"def add9(x) x + 9 end/" ))")
- 
+           s(:str, \"a\" ))")
+
 
 (defn ruby-eval-expr-with-driver-file
   "This function takes in the ruby RBIR form and uses a driver script to print out the RB expression "

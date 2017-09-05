@@ -8,10 +8,15 @@
 
 (def l-1 '(1 2 3))
 
+(into '() l-1)
+(into [] l-1)
+;; Convert list to a map
+;(into {} l-1)
+(into #{} l-1)
+
 
 (doseq [l l-1]
   (prn (inc l)))
-
 
 (doseq [[x y] (map list [1 2 3] [1 2 3])]
   (prn (* x y)))
@@ -20,19 +25,32 @@
 
 (def v-1 [1 2 3])
 
+(into '() m-1)
+(into [] m-1)
+;; Convert vector to a map
+;(into {} m-1)
+(into #{} m-1)
 
 
 ;; HASH-MAP
 
 (def m-1 {:1 1 :2 2 :3 3})
 
+(into '() m-1)
+(into [] m-1)
+(into {} m-1)
+(into #{} m-1)
 
 ;; SET
 
 
-(def s-1 #{1 2 3 })
+(def s-1 #{1 2 3})
 
-
+(into '() s-1)
+(into [] s-1)
+;; Convert set to a map
+;(into {} s-1)
+(into #{} s-1)
 
 ;;;;;;;;;;;;
 ;; SPEC
@@ -59,7 +77,6 @@
    ::score 100
    ::hand []})
 (spec/valid? ::player kenny)
-
 
 (gen/sample (spec/gen string?))
 
