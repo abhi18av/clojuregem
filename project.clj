@@ -15,6 +15,8 @@
                             ;; This is for traversing the nested clojure data structure
                             [com.rpl/specter "1.0.3"]
 
+			    [medley "1.0.0"]
+
                             ;;;;
 
 
