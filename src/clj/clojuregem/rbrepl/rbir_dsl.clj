@@ -1,7 +1,14 @@
 (ns clojuregem.rbrepl.rbir-dsl
     (:require [clojure.tools.analyzer.jvm :as ana.jvm]
-              [clojure.tools.analyzer.passes.jvm.emit-form :as e])
-    (:use com.rpl.specter))
+              [clojure.tools.analyzer.passes.jvm.emit-form :as e]
+              [com.rpl.specter :as specter]
+              [medley.core :as medley]))
+
+
+
+
+
+;      medley.core])
 
 
 ;; (def expr-map
