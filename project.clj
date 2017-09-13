@@ -15,7 +15,7 @@
                             ;; This is for traversing the nested clojure data structure
                             [com.rpl/specter "1.0.3"]
 
-                            ;; Utility for traversing CLJ(S) data structures 
+                            ;; Utility for traversing CLJ(S) data structures
                             [medley "1.0.0"]
 
                             ;;;;
