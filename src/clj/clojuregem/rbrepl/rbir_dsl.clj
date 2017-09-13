@@ -54,10 +54,10 @@
 
 ; [[1 :a] [2 :a] [3 :a] [4 :a] [5 :a] [6 :a] [7 :a] [8 :a] [9 :a] [10 :a]]
 (def -alpha-nums-seq
-  (into [] (sort(alpha-nums "a" 10))))
+  (into [] (sort(-alpha-nums "a" 10))))
 
 ; (":a1" ":a2" ":a3" ":a4" ":a5" ":a6" ":a7" ":a8" ":a9" ":a10")
-(map -join-key-val alpha-nums-seq)
+(map -join-key-val -alpha-nums-seq)
 
 
 ;; TODO: (gen-pairs n alphabet )
@@ -76,6 +76,12 @@
 
 
 
+;;; Working on the actual results of analysis i.e. << x >>
+
+
+
+
+
 (def kx {
 :kx1 (keys (:x1 x))
 :kx2 (keys (:x2 x))
@@ -86,29 +92,9 @@
 
 
 
-;; (do
-
-;; (def  x1 (ana.jvm/analyze '1))
-;; (def  x2 (ana.jvm/analyze '(+ 1)))
-;; (def  x3 (ana.jvm/analyze '(+ 1 1)))
-;; (def  x4 (ana.jvm/analyze '(+ 1 1 1)))
-;; (def  x5 (ana.jvm/analyze '(+ 1 1 1 (- 1))))
-;; (def  x6 (ana.jvm/analyze '(+ 1 1 1 (- 1 1))))
-;; )
 
 
 
-
-
-;; (do
-
-;; (def kx1 (keys x1))
-;; (def kx2 (keys x2))
-;; (def kx3 (keys x3))
-;; (def kx4 (keys x4))
-;; (def kx5 (keys x5))
-;; (def kx6 (keys x6))
-;; )
 
 ;; ;; Using set-theoretic functions for analysis
 
