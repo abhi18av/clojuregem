@@ -39,9 +39,11 @@
                             [org.clojure/tools.reader "1.0.5"]
 
 
-                            ; Quickcheck
+                            ;; Quickcheck
                             [org.clojure/test.check "0.10.0-alpha2"]
-
+                            
+                            ;; Expound - better errors for clojure spec
+                            [expound "0.3.0"]
 
                             ;; Asynchronous stuff
                             [org.clojure/core.async "0.3.443"]
